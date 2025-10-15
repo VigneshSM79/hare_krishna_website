@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase, type CarouselImage } from '../lib/supabase';
+import { uploadToImageKit, deleteFromImageKit } from '../lib/imagekit';
 import { Upload, Trash2, CreditCard as Edit, Save, X, Plus, LogOut, Image as ImageIcon } from 'lucide-react';
 
 interface AdminCarouselManagerProps {
@@ -48,24 +49,16 @@ const AdminCarouselManager: React.FC<AdminCarouselManagerProps> = ({ onLogout })
 
     setUploading(true);
     try {
-      const fileExt = file.name.split('.').pop();
-      const fileName = `${Date.now()}.${fileExt}`;
-      const filePath = fileName;
+      // Upload to ImageKit.io
+      const fileName = `carousel_${Date.now()}_${file.name}`;
+      const uploadResult = await uploadToImageKit(file, fileName, 'carousel');
 
-      const { error: uploadError } = await supabase.storage
-        .from('carousel-images')
-        .upload(filePath, file);
-
-      if (uploadError) throw uploadError;
-
-      const { data: { publicUrl } } = supabase.storage
-        .from('carousel-images')
-        .getPublicUrl(filePath);
-
+      // Insert into Supabase with ImageKit URL and file ID
       const { error: insertError } = await supabase
         .from('carousel_images')
         .insert({
-          image_url: publicUrl,
+          image_url: uploadResult.url,
+          imagekit_file_id: uploadResult.fileId,
           alt_text: newImage.alt_text || 'Temple Image',
           quarter: newImage.quarter || '2024-Q4',
           display_order: newImage.display_order || images.length + 1
@@ -77,24 +70,20 @@ const AdminCarouselManager: React.FC<AdminCarouselManagerProps> = ({ onLogout })
       fetchImages();
     } catch (error) {
       console.error('Error uploading image:', error);
-      alert('Error uploading image. Please try again.');
+      alert(`Error uploading image: ${error instanceof Error ? error.message : 'Please try again.'}`);
     } finally {
       setUploading(false);
     }
   };
 
-  const handleDelete = async (id: string, imageUrl: string) => {
+  const handleDelete = async (id: string, imagekitFileId?: string) => {
     if (!confirm('Are you sure you want to delete this image?')) return;
 
     try {
-      // Extract file path from URL
-      const urlParts = imageUrl.split('/');
-      const fileName = urlParts[urlParts.length - 1];
-
-      // Delete from storage
-      await supabase.storage
-        .from('carousel-images')
-        .remove([fileName]);
+      // Delete from ImageKit.io if file ID exists
+      if (imagekitFileId) {
+        await deleteFromImageKit(imagekitFileId);
+      }
 
       // Delete from database
       const { error } = await supabase
@@ -106,7 +95,7 @@ const AdminCarouselManager: React.FC<AdminCarouselManagerProps> = ({ onLogout })
       fetchImages();
     } catch (error) {
       console.error('Error deleting image:', error);
-      alert('Error deleting image. Please try again.');
+      alert(`Error deleting image: ${error instanceof Error ? error.message : 'Please try again.'}`);
     }
   };
 
@@ -126,38 +115,17 @@ const AdminCarouselManager: React.FC<AdminCarouselManagerProps> = ({ onLogout })
     }
   };
 
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    onLogout();
-  };
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-orange-50 to-blue-50 flex items-center justify-center">
+      <div className="flex items-center justify-center py-12">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-blue-50 p-4">
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-800">Carousel Manager</h1>
-              <p className="text-gray-600 mt-2">Manage temple event images</p>
-            </div>
-            <button
-              onClick={handleLogout}
-              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors flex items-center"
-            >
-              <LogOut size={20} className="mr-2" />
-              Logout
-            </button>
-          </div>
-        </div>
+    <div className="space-y-8">
 
         {/* Upload Section */}
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
@@ -248,12 +216,12 @@ const AdminCarouselManager: React.FC<AdminCarouselManagerProps> = ({ onLogout })
 
         {/* Images Grid */}
         <div className="bg-white rounded-2xl shadow-lg p-6">
-          <h2 className="text-xl font-bold text-gray-800 mb-6">Current Images</h2>
+          <h2 className="text-xl font-bold text-gray-800 mb-6">Carousel Images</h2>
           
           {images.length === 0 ? (
             <div className="text-center py-12">
               <ImageIcon size={64} className="mx-auto text-gray-300 mb-4" />
-              <p className="text-gray-500">No images uploaded yet</p>
+              <p className="text-gray-500">No carousel images uploaded yet</p>
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -290,6 +258,7 @@ const AdminCarouselManager: React.FC<AdminCarouselManagerProps> = ({ onLogout })
                           </button>
                           <button
                             onClick={() => handleDelete(image.id, image.image_url)}
+                            onClick={() => handleDelete(image.id, image.imagekit_file_id)}
                             className="flex-1 bg-red-500 text-white px-3 py-2 rounded-lg hover:bg-red-600 transition-colors flex items-center justify-center"
                           >
                             <Trash2 size={16} className="mr-1" />
@@ -304,7 +273,6 @@ const AdminCarouselManager: React.FC<AdminCarouselManagerProps> = ({ onLogout })
             </div>
           )}
         </div>
-      </div>
     </div>
   );
 };
