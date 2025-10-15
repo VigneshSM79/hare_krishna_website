@@ -1,4 +1,4 @@
-import ImageKit from '@imagekit/javascript';
+import { ImageKit } from '@imagekit/javascript';
 
 const publicKey = import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY;
 const privateKey = import.meta.env.VITE_IMAGEKIT_PRIVATE_KEY;
