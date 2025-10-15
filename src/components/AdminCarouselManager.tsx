@@ -257,7 +257,7 @@ const AdminCarouselManager: React.FC<AdminCarouselManagerProps> = ({ onLogout })
                             Edit
                           </button>
                           <button
-                            onClick={() => handleDelete(image.id, image.image_url)}
+                            
                             onClick={() => handleDelete(image.id, image.imagekit_file_id)}
                             className="flex-1 bg-red-500 text-white px-3 py-2 rounded-lg hover:bg-red-600 transition-colors flex items-center justify-center"
                           >
