@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { supabase, type GalleryImage } from '../lib/supabase';
 import { uploadToImageKit, deleteFromImageKit } from '../lib/imagekit';
-import { Upload, Trash2, Edit, Save, X, Plus, Image as ImageIcon } from 'lucide-react';
+import { Upload, Trash2, CreditCard as Edit, Save, X, Plus, Image as ImageIcon } from 'lucide-react';
 
 const AdminGalleryManager = () => {
   const [images, setImages] = useState<GalleryImage[]>([]);

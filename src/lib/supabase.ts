@@ -32,3 +32,4 @@ export type GalleryImage = {
   imagekit_file_id?: string;
   created_at: string;
   updated_at: string;
+}
