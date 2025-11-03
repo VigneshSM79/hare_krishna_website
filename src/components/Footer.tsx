@@ -22,7 +22,7 @@ const Footer = () => {
     { icon: Facebook, href: '#', color: 'hover:text-blue-600' },
     { icon: Instagram, href: '#', color: 'hover:text-pink-600' },
     { icon: Twitter, href: '#', color: 'hover:text-blue-400' },
-    { icon: Youtube, href: '#', color: 'hover:text-red-600' }
+    { icon: Youtube, href: 'https://www.youtube.com/@HareKrishnaTempleAvadi', color: 'hover:text-red-600' }
   ];
 
   return (
@@ -48,17 +48,9 @@ const Footer = () => {
               </p>
               
               <div className="space-y-3">
-                <div className="flex items-center space-x-3 text-gray-300">
-                  <MapPin size={16} className="text-orange-500" />
-                  <span className="text-sm">123 Krishna Street, Avadi, Chennai</span>
-                </div>
-                <div className="flex items-center space-x-3 text-gray-300">
-                  <Phone size={16} className="text-orange-500" />
-                  <span className="text-sm">+91 98765 43210</span>
-                </div>
-                <div className="flex items-center space-x-3 text-gray-300">
-                  <Mail size={16} className="text-orange-500" />
-                  <span className="text-sm">info@iskconavadi.org</span>
+                <div className="flex items-start space-x-3 text-gray-300">
+                  <MapPin size={16} className="text-orange-500 mt-1 flex-shrink-0" />
+                  <span className="text-sm">147, Chinnamman Koil St, Paruthippattu, Ambattur, Avadi, Chennai - 600054</span>
                 </div>
               </div>
             </div>
@@ -124,6 +116,8 @@ const Footer = () => {
                       <a
                         key={index}
                         href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className={`text-gray-400 ${social.color} transition-colors duration-200`}
                       >
                         <IconComponent size={20} />

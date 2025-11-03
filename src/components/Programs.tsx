@@ -4,18 +4,11 @@ import { Sunrise, Sun, Sunset, Moon, Users, BookOpen, Music, Utensils } from 'lu
 const Programs = () => {
   const dailyPrograms = [
     {
-      time: '5:00 AM',
+      time: '5:30 AM',
       title: 'Mangala Arati',
       description: 'Morning prayers and offering to the deities',
       icon: Sunrise,
       color: 'from-pink-400 to-orange-400'
-    },
-    {
-      time: '8:00 AM',
-      title: 'Darshan & Bhagavatam Class',
-      description: 'Deity worship and scripture study',
-      icon: Sun,
-      color: 'from-yellow-400 to-orange-400'
     },
     {
       time: '6:30 PM',
@@ -25,10 +18,10 @@ const Programs = () => {
       color: 'from-orange-400 to-red-400'
     },
     {
-      time: '8:00 PM',
-      title: 'Shayan Arati',
-      description: 'Night prayers before rest',
-      icon: Moon,
+      time: 'Saturday',
+      title: 'Special Events',
+      description: 'Saturday Feast Program',
+      icon: Users,
       color: 'from-blue-400 to-purple-400'
     }
   ];
@@ -94,9 +87,9 @@ const Programs = () => {
           </div>
 
           {/* Daily Programs */}
-          <div className="mb-20">
+          <div>
             <h3 className="text-3xl font-bold text-center text-gray-800 mb-12">Daily Schedule</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {dailyPrograms.map((program, index) => {
                 const IconComponent = program.icon;
                 return (
@@ -115,53 +108,6 @@ const Programs = () => {
                   </div>
                 );
               })}
-            </div>
-          </div>
-
-          {/* Weekly Programs */}
-          <div>
-            <h3 className="text-3xl font-bold text-center text-gray-800 mb-12">Weekly Programs</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {weeklyPrograms.map((program, index) => {
-                const IconComponent = program.icon;
-                return (
-                  <div
-                    key={index}
-                    className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 group"
-                  >
-                    <div className="flex items-center mb-6">
-                      <div className="w-12 h-12 bg-gradient-to-br from-orange-100 to-orange-200 rounded-xl flex items-center justify-center mr-4 group-hover:shadow-lg transition-all duration-300">
-                        <IconComponent className="text-orange-600" size={24} />
-                      </div>
-                      <div>
-                        <h4 className="text-lg font-bold text-gray-800">{program.day}</h4>
-                        <p className="text-orange-600 font-medium">{program.time}</p>
-                      </div>
-                    </div>
-                    <h5 className="text-xl font-semibold text-gray-800 mb-3">{program.program}</h5>
-                    <p className="text-gray-600 leading-relaxed">{program.description}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* CTA Section */}
-          <div className="mt-20 text-center">
-            <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-3xl p-12 text-white">
-              <h3 className="text-3xl font-bold mb-6">Join Our Spiritual Community</h3>
-              <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-                Experience the joy of Krishna consciousness through our daily programs and community activities. 
-                All are welcome to participate in our spiritual journey.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-white text-orange-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-200 transform hover:-translate-y-1">
-                  Visit Us Today
-                </button>
-                <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-orange-600 transition-all duration-200">
-                  Download Schedule
-                </button>
-              </div>
             </div>
           </div>
         </div>

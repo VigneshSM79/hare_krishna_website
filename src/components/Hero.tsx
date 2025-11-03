@@ -48,37 +48,9 @@ const Hero = () => {
               Experience divine consciousness through devotion, spiritual practice, and community service
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-orange-600 to-orange-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-200 transform hover:-translate-y-1">
-                Hare Krishna Temple Avadi
-              </button>
-              <button className="border-2 border-orange-600 text-orange-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-orange-600 hover:text-white transition-all duration-200">
-                Learn More
-              </button>
-            </div>
-            
-            <p className="text-gray-600 text-center">
+            <p className="text-gray-600 text-center text-lg">
               Spreading the Hare Krishna Maha Mantra and teachings of Lord Sri Chaitanya Mahaprabhu
             </p>
-          </div>
-          
-          {/* Temple Timings */}
-          <div className="mt-20 bg-white rounded-3xl p-8 shadow-lg max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Temple Timings</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="text-center">
-                <h4 className="font-semibold text-gray-800 mb-2">Morning</h4>
-                <p className="text-gray-600">5:30 AM - 12:00 PM</p>
-              </div>
-              <div className="text-center">
-                <h4 className="font-semibold text-gray-800 mb-2">Evening</h4>
-                <p className="text-gray-600">6:00 PM - 8:30 PM</p>
-              </div>
-              <div className="text-center">
-                <h4 className="font-semibold text-gray-800 mb-2">Special Events</h4>
-                <p className="text-gray-600">Saturday Feast Program</p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

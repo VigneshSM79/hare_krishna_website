@@ -1,63 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { supabase, type GalleryImage } from '../lib/supabase';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const galleryImages = [
-    {
-      src: 'https://images.pexels.com/photos/2145748/pexels-photo-2145748.jpeg?auto=compress&cs=tinysrgb&w=600',
-      alt: 'Temple Architecture',
-      category: 'Temple'
-    },
-    {
-      src: 'https://images.pexels.com/photos/5626663/pexels-photo-5626663.jpeg?auto=compress&cs=tinysrgb&w=600',
-      alt: 'Prayer Hall',
-      category: 'Interior'
-    },
-    {
-      src: 'https://images.pexels.com/photos/8294678/pexels-photo-8294678.jpeg?auto=compress&cs=tinysrgb&w=600',
-      alt: 'Krishna Deity',
-      category: 'Deities'
-    },
-    {
-      src: 'https://images.pexels.com/photos/6975384/pexels-photo-6975384.jpeg?auto=compress&cs=tinysrgb&w=600',
-      alt: 'Festival Celebration',
-      category: 'Festivals'
-    },
-    {
-      src: 'https://images.pexels.com/photos/7480136/pexels-photo-7480136.jpeg?auto=compress&cs=tinysrgb&w=600',
-      alt: 'Community Gathering',
-      category: 'Community'
-    },
-    {
-      src: 'https://images.pexels.com/photos/5207262/pexels-photo-5207262.jpeg?auto=compress&cs=tinysrgb&w=600',
-      alt: 'Kirtan Session',
-      category: 'Activities'
-    },
-    {
-      src: 'https://images.pexels.com/photos/8728382/pexels-photo-8728382.jpeg?auto=compress&cs=tinysrgb&w=600',
-      alt: 'Temple Garden',
-      category: 'Temple'
-    },
-    {
-      src: 'https://images.pexels.com/photos/6975378/pexels-photo-6975378.jpeg?auto=compress&cs=tinysrgb&w=600',
-      alt: 'Cultural Performance',
-      category: 'Festivals'
-    },
-    {
-      src: 'https://images.pexels.com/photos/8294442/pexels-photo-8294442.jpeg?auto=compress&cs=tinysrgb&w=600',
-      alt: 'Prasadam Distribution',
-      category: 'Community'
-    }
-  ];
-
-  const categories = ['All', 'Temple', 'Interior', 'Deities', 'Festivals', 'Community', 'Activities'];
+  const categories = ['All', 'general', 'festivals', 'temple', 'community', 'deities', 'activities'];
   const [selectedCategory, setSelectedCategory] = useState('All');
 
-  const filteredImages = selectedCategory === 'All' 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === selectedCategory);
+  useEffect(() => {
+    fetchGalleryImages();
+  }, []);
+
+  const fetchGalleryImages = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('gallery_images')
+        .select('*')
+        .eq('is_active', true)
+        .order('display_order', { ascending: true });
+
+      if (error) {
+        console.warn('Gallery images table not found, using fallback');
+        setGalleryImages([]);
+        return;
+      }
+      setGalleryImages(data || []);
+    } catch (error) {
+      console.warn('Error fetching gallery images:', error);
+      setGalleryImages([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const filteredImages = selectedCategory === 'All'
+    ? galleryImages
+    : galleryImages.filter(img => img.category.toLowerCase() === selectedCategory.toLowerCase());
 
   const nextImage = () => {
     if (selectedImage !== null) {
@@ -98,35 +79,45 @@ const Gallery = () => {
                     : 'bg-white text-gray-600 hover:bg-orange-100 hover:text-orange-500'
                 }`}
               >
-                {category}
+                {category.charAt(0).toUpperCase() + category.slice(1)}
               </button>
             ))}
           </div>
 
           {/* Gallery Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {filteredImages.map((image, index) => (
-              <div
-                key={index}
-                className="relative group cursor-pointer overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-                onClick={() => setSelectedImage(index)}
-              >
-                <div className="aspect-square">
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <p className="font-semibold">{image.alt}</p>
-                    <p className="text-sm opacity-90">{image.category}</p>
+          {loading ? (
+            <div className="flex items-center justify-center py-12">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+            </div>
+          ) : filteredImages.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-500 text-lg">No images found in this category</p>
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+              {filteredImages.map((image, index) => (
+                <div
+                  key={image.id}
+                  className="relative group cursor-pointer overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                  onClick={() => setSelectedImage(index)}
+                >
+                  <div className="aspect-square">
+                    <img
+                      src={image.image_url}
+                      alt={image.alt_text}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-4 left-4 text-white">
+                      <p className="font-semibold">{image.alt_text}</p>
+                      <p className="text-sm opacity-90">{image.category}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
 
           {/* Statistics */}
           <div className="grid md:grid-cols-3 gap-8">
@@ -135,7 +126,7 @@ const Gallery = () => {
               <p className="text-gray-600 font-medium">Photos in Gallery</p>
             </div>
             <div className="text-center bg-white rounded-2xl p-8 shadow-lg">
-              <div className="text-4xl font-bold text-blue-600 mb-2">50+</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">10+</div>
               <p className="text-gray-600 font-medium">Festivals Celebrated</p>
             </div>
             <div className="text-center bg-white rounded-2xl p-8 shadow-lg">
@@ -158,8 +149,8 @@ const Gallery = () => {
             </button>
             
             <img
-              src={filteredImages[selectedImage].src}
-              alt={filteredImages[selectedImage].alt}
+              src={filteredImages[selectedImage].image_url}
+              alt={filteredImages[selectedImage].alt_text}
               className="max-w-full max-h-[80vh] object-contain rounded-lg"
             />
             
@@ -178,7 +169,7 @@ const Gallery = () => {
             </button>
 
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-white px-4 py-2 rounded-lg">
-              <p className="font-semibold">{filteredImages[selectedImage].alt}</p>
+              <p className="font-semibold">{filteredImages[selectedImage].alt_text}</p>
               <p className="text-sm text-center">{selectedImage + 1} of {filteredImages.length}</p>
             </div>
           </div>

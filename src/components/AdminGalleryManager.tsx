@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { supabase, type GalleryImage } from '../lib/supabase';
-import { uploadToImageKit, deleteFromImageKit } from '../lib/imagekit';
-import { Upload, Trash2, CreditCard as Edit, Save, X, Plus, Image as ImageIcon } from 'lucide-react';
+import { uploadToImageKit, deleteFromImageKit, listFilesFromFolder } from '../lib/imagekit';
+import { Upload, Trash2, CreditCard as Edit, Save, X, Plus, Image as ImageIcon, Download } from 'lucide-react';
 
 const AdminGalleryManager = () => {
   const [images, setImages] = useState<GalleryImage[]>([]);
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
+  const [showSyncDialog, setShowSyncDialog] = useState(false);
+  const [syncFolderPath, setSyncFolderPath] = useState('');
+  const [syncing, setSyncing] = useState(false);
+  const [syncStatus, setSyncStatus] = useState('');
   const [newImage, setNewImage] = useState({
     alt_text: '',
     category: 'general',
@@ -112,6 +116,72 @@ const AdminGalleryManager = () => {
     } catch (error) {
       console.error('Error updating image:', error);
       alert(`Error updating image: ${error instanceof Error ? error.message : 'Please try again.'}`);
+    }
+  };
+
+  const handleSyncFromImageKit = async () => {
+    if (!syncFolderPath.trim()) {
+      alert('Please enter a folder path');
+      return;
+    }
+
+    setSyncing(true);
+    setSyncStatus('Fetching images from ImageKit...');
+
+    try {
+      // Fetch images from ImageKit folder
+      const files = await listFilesFromFolder(syncFolderPath);
+
+      if (files.length === 0) {
+        setSyncStatus('No images found in this folder');
+        setTimeout(() => {
+          setShowSyncDialog(false);
+          setSyncStatus('');
+        }, 2000);
+        return;
+      }
+
+      setSyncStatus(`Found ${files.length} images. Importing to database...`);
+
+      // Get current max display order
+      const maxOrder = images.length > 0
+        ? Math.max(...images.map(img => img.display_order))
+        : 0;
+
+      // Insert images into Supabase
+      const imagesToInsert = files.map((file, index) => ({
+        image_url: file.url,
+        imagekit_file_id: file.fileId,
+        alt_text: file.name.replace(/\.[^/.]+$/, '').replace(/_/g, ' '),
+        category: 'festivals',
+        description: `Imported from ${syncFolderPath}`,
+        display_order: maxOrder + index + 1,
+        is_active: true
+      }));
+
+      const { error: insertError } = await supabase
+        .from('gallery_images')
+        .insert(imagesToInsert);
+
+      if (insertError) throw insertError;
+
+      setSyncStatus(`Successfully imported ${files.length} images!`);
+
+      // Refresh the gallery
+      await fetchImages();
+
+      // Close dialog after success
+      setTimeout(() => {
+        setShowSyncDialog(false);
+        setSyncStatus('');
+        setSyncFolderPath('');
+      }, 2000);
+
+    } catch (error) {
+      console.error('Error syncing from ImageKit:', error);
+      setSyncStatus(`Error: ${error instanceof Error ? error.message : 'Failed to sync images'}`);
+    } finally {
+      setSyncing(false);
     }
   };
 
@@ -228,6 +298,103 @@ const AdminGalleryManager = () => {
           </div>
         </div>
       </div>
+
+      {/* Sync from ImageKit Button */}
+      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl shadow-lg p-6">
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-xl font-bold text-gray-800 mb-2 flex items-center">
+              <Download size={24} className="mr-2 text-blue-500" />
+              Import from ImageKit
+            </h2>
+            <p className="text-sm text-gray-600">
+              Automatically import all images from an ImageKit folder
+            </p>
+          </div>
+          <button
+            onClick={() => setShowSyncDialog(true)}
+            className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors flex items-center shadow-md"
+          >
+            <Download size={20} className="mr-2" />
+            Sync Folder
+          </button>
+        </div>
+      </div>
+
+      {/* Sync Dialog */}
+      {showSyncDialog && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">
+              Sync from ImageKit
+            </h3>
+
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Folder Path
+              </label>
+              <input
+                type="text"
+                value={syncFolderPath}
+                onChange={(e) => setSyncFolderPath(e.target.value)}
+                placeholder="/2025 hare krishna janmastami"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                disabled={syncing}
+              />
+              <p className="text-xs text-gray-500 mt-1">
+                Enter the exact folder path from ImageKit (e.g., /festivals/janmashtami)
+              </p>
+            </div>
+
+            {syncStatus && (
+              <div className={`mb-4 p-3 rounded-lg ${
+                syncStatus.includes('Error')
+                  ? 'bg-red-50 text-red-700'
+                  : syncStatus.includes('Successfully')
+                  ? 'bg-green-50 text-green-700'
+                  : 'bg-blue-50 text-blue-700'
+              }`}>
+                {syncStatus}
+              </div>
+            )}
+
+            <div className="flex space-x-3">
+              <button
+                onClick={handleSyncFromImageKit}
+                disabled={syncing}
+                className={`flex-1 ${
+                  syncing
+                    ? 'bg-gray-400'
+                    : 'bg-blue-500 hover:bg-blue-600'
+                } text-white px-4 py-2 rounded-lg transition-colors flex items-center justify-center`}
+              >
+                {syncing ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                    Syncing...
+                  </>
+                ) : (
+                  <>
+                    <Download size={16} className="mr-2" />
+                    Start Sync
+                  </>
+                )}
+              </button>
+              <button
+                onClick={() => {
+                  setShowSyncDialog(false);
+                  setSyncStatus('');
+                  setSyncFolderPath('');
+                }}
+                disabled={syncing}
+                className="flex-1 bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition-colors disabled:bg-gray-300"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Images Grid */}
       <div className="bg-white rounded-2xl shadow-lg p-6">
