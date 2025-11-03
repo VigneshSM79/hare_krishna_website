@@ -79,19 +79,27 @@ Vercel will auto-detect it's a Vite project. Configure as follows:
 
 This is **CRITICAL** - your app won't work without these!
 
-In the Vercel project configuration page, find **"Environment Variables"** section and add:
+**⚠️ IMPORTANT:** Your actual credentials are in your local `.env` file. **NEVER commit credentials to git!**
+
+In the Vercel project configuration page, find **"Environment Variables"** section and add these 5 variables with **YOUR ACTUAL VALUES** from your `.env` file:
 
 ```
-VITE_SUPABASE_URL = https://gfippiubjrxsmnufyioh.supabase.co
-VITE_SUPABASE_ANON_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdmaXBwaXVianJ4c21udWZ5aW9oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkxNjM2MDQsImV4cCI6MjA3NDczOTYwNH0.b8F3O5NbaIMKyrohXy-bGr2jUbfeRUfy2y0V4pGjRnA
-VITE_IMAGEKIT_PUBLIC_KEY = public_7f1RD/+qoS/TQ/fpOxrLgRiqy+o=
-VITE_IMAGEKIT_PRIVATE_KEY = private_4W9KigZW6lvYhYcr/NZw8M86xtY=
-VITE_IMAGEKIT_URL_ENDPOINT = https://ik.imagekit.io/harekrishnaavadi
+VITE_SUPABASE_URL = <your_supabase_url>
+VITE_SUPABASE_ANON_KEY = <your_supabase_anon_key>
+VITE_IMAGEKIT_PUBLIC_KEY = <your_imagekit_public_key>
+VITE_IMAGEKIT_PRIVATE_KEY = <your_imagekit_private_key>
+VITE_IMAGEKIT_URL_ENDPOINT = <your_imagekit_url_endpoint>
 ```
+
+**Where to find your credentials:**
+- Open your local `.env` file (NOT committed to git)
+- Copy each value from there to Vercel
+- See `.env.example` for the variable names if needed
 
 **Important Notes:**
-- Add each variable separately
+- Add each variable separately in Vercel
 - Select "Production", "Preview", and "Development" for all variables
+- **NEVER** commit your `.env` file to git (it's already in `.gitignore`)
 - **WARNING:** ImageKit private key is exposed in the browser. This is acceptable for read operations but consider moving to backend for uploads in production.
 
 ### **Step 6: Deploy**

@@ -17,15 +17,19 @@ git push origin main
 5. Click "Import"
 
 ### **Step 3: Configure Environment** (3 min)
-Add these 5 environment variables in Vercel:
+**⚠️ Use YOUR actual credentials from your local `.env` file!**
+
+Add these 5 environment variables in Vercel with your actual values:
 
 ```
-VITE_SUPABASE_URL = https://gfippiubjrxsmnufyioh.supabase.co
-VITE_SUPABASE_ANON_KEY = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdmaXBwaXVianJ4c21udWZ5aW9oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkxNjM2MDQsImV4cCI6MjA3NDczOTYwNH0.b8F3O5NbaIMKyrohXy-bGr2jUbfeRUfy2y0V4pGjRnA
-VITE_IMAGEKIT_PUBLIC_KEY = public_7f1RD/+qoS/TQ/fpOxrLgRiqy+o=
-VITE_IMAGEKIT_PRIVATE_KEY = private_4W9KigZW6lvYhYcr/NZw8M86xtY=
-VITE_IMAGEKIT_URL_ENDPOINT = https://ik.imagekit.io/harekrishnaavadi
+VITE_SUPABASE_URL = <your_value_from_.env>
+VITE_SUPABASE_ANON_KEY = <your_value_from_.env>
+VITE_IMAGEKIT_PUBLIC_KEY = <your_value_from_.env>
+VITE_IMAGEKIT_PRIVATE_KEY = <your_value_from_.env>
+VITE_IMAGEKIT_URL_ENDPOINT = <your_value_from_.env>
 ```
+
+**Copy values from your local `.env` file - NEVER commit credentials to git!**
 
 ### **Step 4: Deploy** (2 min)
 1. Click "Deploy"
