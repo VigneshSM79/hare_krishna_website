@@ -11,7 +11,7 @@ const AdminPanel = () => {
 
   useEffect(() => {
     checkAuthStatus();
-    
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       setIsAuthenticated(!!session);
       setLoading(false);
@@ -19,6 +19,35 @@ const AdminPanel = () => {
 
     return () => subscription.unsubscribe();
   }, []);
+
+  // Session timeout - logout after 2 hours of inactivity
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+
+    const resetTimeout = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      // 2 hours = 7200000 milliseconds
+      timeoutId = setTimeout(() => {
+        handleLogout();
+      }, 7200000);
+    };
+
+    const events = ['mousedown', 'keydown', 'scroll', 'touchstart'];
+
+    if (isAuthenticated) {
+      resetTimeout();
+      events.forEach(event => {
+        window.addEventListener(event, resetTimeout);
+      });
+    }
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      events.forEach(event => {
+        window.removeEventListener(event, resetTimeout);
+      });
+    };
+  }, [isAuthenticated]);
 
   const checkAuthStatus = async () => {
     const { data: { session } } = await supabase.auth.getSession();
@@ -30,9 +59,18 @@ const AdminPanel = () => {
     setIsAuthenticated(true);
   };
 
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-    setActiveTab('carousel');
+  const handleLogout = async () => {
+    try {
+      // Properly sign out from Supabase
+      await supabase.auth.signOut();
+      setIsAuthenticated(false);
+      setActiveTab('carousel');
+    } catch (error) {
+      console.error('Error signing out:', error);
+      // Still update UI state even if signOut fails
+      setIsAuthenticated(false);
+      setActiveTab('carousel');
+    }
   };
 
   if (loading) {

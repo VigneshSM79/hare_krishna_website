@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const quickLinks = [
@@ -143,12 +144,12 @@ const Footer = () => {
               </div>
               
               <div className="flex space-x-6 text-sm">
-                <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-200">
+                <Link to="/privacy" className="text-gray-400 hover:text-orange-400 transition-colors duration-200">
                   Privacy Policy
-                </a>
-                <a href="#" className="text-gray-400 hover:text-orange-400 transition-colors duration-200">
+                </Link>
+                <Link to="/terms" className="text-gray-400 hover:text-orange-400 transition-colors duration-200">
                   Terms of Service
-                </a>
+                </Link>
               </div>
             </div>
           </div>
