@@ -62,7 +62,65 @@ git push origin main
 2. Find your repository: `hare_krishna_website`
 3. Click **"Import"**
 
-### **Step 4: Configure Your Project**
+### **Step 4: Deploy Supabase Edge Functions (CRITICAL SECURITY STEP)**
+
+**⚠️ IMPORTANT:** This step is **MANDATORY** for security! We've moved ImageKit operations to backend Edge Functions to protect your private key.
+
+**What are Edge Functions?**
+- Backend functions that run on Supabase servers (NOT in browser)
+- Keep your ImageKit private key secure on the server
+- Industry-standard security approach
+
+**Deployment Steps:**
+
+1. **Install Supabase CLI:**
+   ```bash
+   npm install -g supabase
+   ```
+
+2. **Login to Supabase:**
+   ```bash
+   supabase login
+   # Follow the browser authentication prompts
+   ```
+
+3. **Link your project:**
+   ```bash
+   cd "D:\Dev\Hare Krishna Temple\hk_webiste\hare_krishna_website"
+   supabase link --project-ref gfippiubjrxsmnufyioh
+   ```
+
+4. **Set Edge Function secrets (these stay on server!):**
+   ```bash
+   # ImageKit credentials (SECURE - stays on backend)
+   supabase secrets set IMAGEKIT_PUBLIC_KEY="<your_imagekit_public_key>"
+   supabase secrets set IMAGEKIT_PRIVATE_KEY="<your_imagekit_private_key>"
+   supabase secrets set IMAGEKIT_URL_ENDPOINT="<your_imagekit_url_endpoint>"
+
+   # Supabase credentials (for auth verification)
+   supabase secrets set SUPABASE_URL="<your_supabase_url>"
+   supabase secrets set SUPABASE_ANON_KEY="<your_supabase_anon_key>"
+   ```
+
+5. **Deploy the Edge Functions:**
+   ```bash
+   # Deploy all three functions
+   supabase functions deploy imagekit-upload
+   supabase functions deploy imagekit-delete
+   supabase functions deploy imagekit-list
+   ```
+
+6. **Verify deployment:**
+   ```bash
+   supabase functions list
+   # Should show: imagekit-upload, imagekit-delete, imagekit-list
+   ```
+
+**📚 Need detailed help?** See [EDGE_FUNCTIONS_GUIDE.md](./EDGE_FUNCTIONS_GUIDE.md) for complete instructions and troubleshooting.
+
+---
+
+### **Step 5: Configure Your Project in Vercel**
 
 Vercel will auto-detect it's a Vite project. Configure as follows:
 
@@ -75,7 +133,7 @@ Vercel will auto-detect it's a Vite project. Configure as follows:
 
 **Root Directory:** `./` (leave as default)
 
-### **Step 5: Add Environment Variables**
+### **Step 6: Add Environment Variables in Vercel**
 
 This is **CRITICAL** - your app won't work without these!
 

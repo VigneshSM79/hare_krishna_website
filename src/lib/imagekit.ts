@@ -1,32 +1,8 @@
-let imagekitInstance: any = null;
+// ImageKit integration for Hare Krishna Temple website
+// SECURITY: Uses Supabase Edge Functions to keep private key secure on backend
+// Private key is NEVER exposed to frontend
 
-const getImageKit = async () => {
-  if (imagekitInstance) return imagekitInstance;
-
-  const publicKey = import.meta.env.VITE_IMAGEKIT_PUBLIC_KEY;
-  const privateKey = import.meta.env.VITE_IMAGEKIT_PRIVATE_KEY;
-  const urlEndpoint = import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT;
-
-  if (!publicKey || !privateKey || !urlEndpoint) {
-    throw new Error('Missing ImageKit environment variables');
-  }
-
-  try {
-    const ImageKitLib = await import('@imagekit/javascript');
-    const ImageKit = (ImageKitLib as any).default || ImageKitLib;
-
-    imagekitInstance = new ImageKit({
-      publicKey,
-      privateKey,
-      urlEndpoint,
-    });
-
-    return imagekitInstance;
-  } catch (error) {
-    console.error('Failed to load ImageKit:', error);
-    throw new Error('ImageKit initialization failed');
-  }
-};
+import { supabase } from './supabase';
 
 export interface ImageKitUploadResponse {
   fileId: string;
@@ -43,43 +19,6 @@ export interface ImageKitUploadResponse {
   fileType: string;
 }
 
-export const uploadToImageKit = async (
-  file: File,
-  fileName: string,
-  folder?: string
-): Promise<ImageKitUploadResponse> => {
-  const imagekit = await getImageKit();
-  return new Promise((resolve, reject) => {
-    imagekit.upload({
-      file,
-      fileName,
-      folder: folder || 'temple-images',
-      useUniqueFileName: true,
-    }, (error: any, result: any) => {
-      if (error) {
-        reject(error);
-      } else if (result) {
-        resolve(result as ImageKitUploadResponse);
-      } else {
-        reject(new Error('Upload failed - no result returned'));
-      }
-    });
-  });
-};
-
-export const deleteFromImageKit = async (fileId: string): Promise<void> => {
-  const imagekit = await getImageKit();
-  return new Promise((resolve, reject) => {
-    imagekit.deleteFile(fileId, (error: any) => {
-      if (error) {
-        reject(error);
-      } else {
-        resolve();
-      }
-    });
-  });
-};
-
 export interface ImageKitFile {
   fileId: string;
   name: string;
@@ -95,37 +34,134 @@ export interface ImageKitFile {
   createdAt: string;
 }
 
-export const listFilesFromFolder = async (folderPath: string): Promise<ImageKitFile[]> => {
-  const urlEndpoint = import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT;
-  const privateKey = import.meta.env.VITE_IMAGEKIT_PRIVATE_KEY;
+/**
+ * Convert File to Base64 string for Edge Function upload
+ */
+const fileToBase64 = (file: File): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      const result = reader.result as string;
+      // Remove data URL prefix (e.g., "data:image/png;base64,")
+      const base64 = result.split(',')[1];
+      resolve(base64);
+    };
+    reader.onerror = (error) => reject(error);
+  });
+};
 
-  if (!urlEndpoint || !privateKey) {
-    throw new Error('Missing ImageKit environment variables');
-  }
-
+/**
+ * Upload image to ImageKit via secure Edge Function
+ * Private key stays on backend - NEVER exposed to browser
+ *
+ * @param file - The image file to upload
+ * @param fileName - Name for the uploaded file
+ * @param folder - Optional folder path (default: 'temple-images')
+ * @returns Upload response with ImageKit file details
+ */
+export const uploadToImageKit = async (
+  file: File,
+  fileName: string,
+  folder?: string
+): Promise<ImageKitUploadResponse> => {
   try {
-    // ImageKit List Files API endpoint
-    const apiUrl = `https://api.imagekit.io/v1/files`;
+    // Convert file to base64
+    const base64File = await fileToBase64(file);
 
-    // Create basic auth token
-    const auth = btoa(`${privateKey}:`);
-
-    const response = await fetch(`${apiUrl}?path=${encodeURIComponent(folderPath)}`, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Basic ${auth}`,
-        'Content-Type': 'application/json',
-      }
+    // Call secure Edge Function (private key stays on backend)
+    const { data, error } = await supabase.functions.invoke('imagekit-upload', {
+      body: {
+        file: base64File,
+        fileName,
+        folder: folder || 'temple-images',
+      },
     });
 
-    if (!response.ok) {
-      throw new Error(`ImageKit API error: ${response.status} ${response.statusText}`);
+    if (error) {
+      console.error('Edge Function error:', error);
+      throw new Error(`Upload failed: ${error.message}`);
     }
 
-    const files = await response.json();
-    return files as ImageKitFile[];
+    if (!data || !data.success) {
+      throw new Error(data?.error || 'Upload failed');
+    }
+
+    return data.data as ImageKitUploadResponse;
+  } catch (error) {
+    console.error('Error uploading to ImageKit:', error);
+    throw error instanceof Error ? error : new Error('Upload failed');
+  }
+};
+
+/**
+ * Delete image from ImageKit via secure Edge Function
+ * Private key stays on backend - NEVER exposed to browser
+ *
+ * @param fileId - ImageKit file ID to delete
+ */
+export const deleteFromImageKit = async (fileId: string): Promise<void> => {
+  try {
+    // Call secure Edge Function (private key stays on backend)
+    const { data, error } = await supabase.functions.invoke('imagekit-delete', {
+      body: {
+        fileId,
+      },
+    });
+
+    if (error) {
+      console.error('Edge Function error:', error);
+      throw new Error(`Delete failed: ${error.message}`);
+    }
+
+    if (!data || !data.success) {
+      throw new Error(data?.error || 'Delete failed');
+    }
+
+    console.log('File deleted successfully:', fileId);
+  } catch (error) {
+    console.error('Error deleting from ImageKit:', error);
+    throw error instanceof Error ? error : new Error('Delete failed');
+  }
+};
+
+/**
+ * List files from ImageKit folder via secure Edge Function
+ * Private key stays on backend - NEVER exposed to browser
+ *
+ * @param folderPath - Folder path to list files from
+ * @returns Array of ImageKit files
+ */
+export const listFilesFromFolder = async (folderPath: string): Promise<ImageKitFile[]> => {
+  try {
+    // Call secure Edge Function (private key stays on backend)
+    const { data, error } = await supabase.functions.invoke('imagekit-list', {
+      body: {
+        folderPath,
+      },
+    });
+
+    if (error) {
+      console.error('Edge Function error:', error);
+      throw new Error(`List files failed: ${error.message}`);
+    }
+
+    if (!data || !data.success) {
+      throw new Error(data?.error || 'List files failed');
+    }
+
+    return data.data as ImageKitFile[];
   } catch (error) {
     console.error('Error listing files from ImageKit:', error);
-    throw error;
+    throw error instanceof Error ? error : new Error('List files failed');
   }
+};
+
+// Export ImageKit URL endpoint for displaying images (public, no security risk)
+export const getImageKitUrl = (): string => {
+  const urlEndpoint = import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT;
+  if (!urlEndpoint) {
+    throw new Error('Missing ImageKit URL endpoint configuration');
+  }
+  return urlEndpoint;
 };
