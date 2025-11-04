@@ -44,12 +44,9 @@ serve(async (req: Request) => {
     }
 
     // Create Supabase client to verify the JWT token
-    const supabaseUrl = Deno.env.get("SUPABASE_URL");
-    const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY");
-
-    if (!supabaseUrl || !supabaseAnonKey) {
-      throw new Error("Missing Supabase configuration");
-    }
+    // Note: SUPABASE_URL and SUPABASE_ANON_KEY are automatically provided by Supabase Edge Functions
+    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+    const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
 
     const supabase = createClient(supabaseUrl, supabaseAnonKey, {
       global: {
