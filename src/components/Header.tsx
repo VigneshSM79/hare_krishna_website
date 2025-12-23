@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,18 +15,18 @@ const Header = () => {
   }, []);
 
   const navigationItems = [
-    { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About' },
-    { href: '#programs', label: 'Programs' },
-    { href: '#events', label: 'Events' },
-    { href: '#gallery', label: 'Gallery' },
-    { href: '#contact', label: 'Contact' }
+    { href: '/#home', label: 'Home', type: 'route' },
+    { href: '/#about', label: 'About', type: 'route' },
+    { href: '/#programs', label: 'Programs', type: 'route' },
+    { href: '/#events', label: 'Events', type: 'route' },
+    { href: '/festivals', label: 'Festivals', type: 'route' },
+    { href: '/#gallery', label: 'Gallery', type: 'route' },
+    { href: '/#contact', label: 'Contact', type: 'route' }
   ];
 
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
-    }`}>
+    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
+      }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-3">
           {/* Logo/Brand */}
@@ -41,14 +42,14 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigationItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
+                to={item.href}
                 className="font-medium text-gray-700 hover:text-orange-500 transition-colors duration-200 relative group"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-200 group-hover:w-full"></span>
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -67,14 +68,14 @@ const Header = () => {
         <div className="md:hidden bg-white shadow-lg border-t">
           <div className="container mx-auto px-4 py-4">
             {navigationItems.map((item) => (
-              <a
+              <Link
                 key={item.href}
-                href={item.href}
+                to={item.href}
                 className="block py-3 text-gray-700 font-medium hover:text-orange-500 hover:bg-orange-50 px-2 rounded transition-colors"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

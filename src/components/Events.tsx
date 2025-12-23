@@ -4,34 +4,31 @@ import { Calendar, Clock, MapPin, Users, Star } from 'lucide-react';
 const Events = () => {
   const upcomingEvents = [
     {
-      date: '7 Oct',
-      month: 'to 5 Nov',
-      title: 'Damodara Pooja',
-      time: 'Daily Programs',
-      location: 'Main Temple Hall',
-      description: 'Special month-long celebration with daily prayers, offerings, and devotional activities.',
+      date: '30',
+      month: 'Dec 2025',
+      title: 'Sri Vaikuntha Ekadashi',
+      time: '5:30 AM - 12 Noon',
+      location: 'Temple Complex',
+      description: 'Swarga Vaasal opening at 5:30 AM. Join us for this auspicious occasion.',
       featured: true,
-      attendees: 300
     },
     {
-      date: '21',
-      month: 'Oct',
-      title: 'Deepavali',
-      time: '6:00 PM - 8:30 PM',
+      date: '31',
+      month: 'Jan 2026',
+      title: 'Sri Nityananda Trayodashi',
+      time: '6:30 PM - 10 PM',
       location: 'Temple Complex',
-      description: 'Festival of lights celebration with special prayers, lamps, and prasadam distribution.',
+      description: 'Celebration of the appearance day of Lord Nityananda Prabhu.',
       featured: false,
-      attendees: 200
     },
     {
-      date: '22',
-      month: 'Oct',
-      title: 'Govardhan Pooja',
-      time: '10:00 AM - 8:00 PM',
+      date: '3',
+      month: 'Mar 2026',
+      title: 'Sri Gaura Purnima',
+      time: '6:30 PM - 10 PM',
       location: 'Temple Complex',
-      description: 'Celebrating Lord Krishna lifting Govardhan Hill with special prayers and offerings.',
+      description: 'The appearance day of Lord Sri Chaitanya Mahaprabhu.',
       featured: false,
-      attendees: 250
     }
   ];
 
@@ -42,10 +39,10 @@ const Events = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Upcoming Events & Festivals
+              Upcoming Events
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Join us for special celebrations, festivals, and spiritual programs throughout the year. 
+              Join us for special celebrations, festivals, and spiritual programs throughout the year.
               Experience the joy of community worship and devotional activities.
             </p>
           </div>
@@ -57,9 +54,8 @@ const Events = () => {
               {upcomingEvents.map((event, index) => (
                 <div
                   key={index}
-                  className={`bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ${
-                    event.featured ? 'border-2 border-orange-200 lg:col-span-2' : ''
-                  }`}
+                  className={`bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ${event.featured ? 'border-2 border-orange-200 lg:col-span-2' : ''
+                    }`}
                 >
                   <div className={`${event.featured ? 'lg:flex' : ''}`}>
                     {/* Date Card */}
@@ -72,10 +68,7 @@ const Events = () => {
                       )}
                       <div className="text-4xl font-bold">{event.date}</div>
                       <div className="text-lg font-medium opacity-90">{event.month}</div>
-                      <div className="mt-4 flex items-center justify-center text-sm opacity-80">
-                        <Users size={16} className="mr-1" />
-                        <span>{event.attendees} expected</span>
-                      </div>
+
                     </div>
 
                     {/* Event Details */}

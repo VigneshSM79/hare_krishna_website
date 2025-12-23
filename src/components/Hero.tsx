@@ -6,13 +6,13 @@ const Hero = () => {
     <section id="home" className="relative bg-gradient-to-br from-orange-50 via-white to-blue-50 min-h-screen">
       <div className="container mx-auto px-4 py-20">
         <div className="max-w-6xl mx-auto">
-          
+
           {/* Main Heading */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight">
               Welcome to
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-500">
-                HareKrishna Temple Avadi
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-500 pb-2">
+                Hare Krishna Temple Avadi
               </span>
             </h1>
           </div>

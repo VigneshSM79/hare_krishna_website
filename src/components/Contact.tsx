@@ -48,9 +48,10 @@ const Contact = () => {
                   How to Reach Us
                 </h4>
                 <div className="space-y-3 text-gray-600">
-                  <p><span className="font-medium">By Bus:</span> Take buses to Avadi Bus Stand, temple is 5 minutes walk</p>
+                  <p><span className="font-medium">By Bus:</span> Take bus 62E or S41. The temple is a short walk from the bus stop</p>
                   <p><span className="font-medium">By Train:</span> Avadi Railway Station is the nearest station</p>
                   <p><span className="font-medium">By Metro:</span> Avadi Metro Station (upcoming)</p>
+                  <p><span className="font-medium">Landmark:</span> St. Peter's College</p>
                 </div>
               </div>
             </div>
