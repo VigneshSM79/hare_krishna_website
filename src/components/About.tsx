@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Book, Sparkles, Check } from 'lucide-react';
+import { Heart, Book, Sparkles, Check, Users } from 'lucide-react';
 
 const About = () => {
   const principles = [
@@ -20,6 +20,12 @@ const About = () => {
       title: 'Honor Prasadam',
       description: 'Food sanctified by offering to the Supreme Lord',
       detail: 'Devotees who eat food offered first as sacrifice are released from all kinds of sins.'
+    },
+    {
+      icon: Users,
+      title: 'Devotee Association',
+      description: 'Associate with devotees who carry spontaneous love towards krishna',
+      detail: 'Physical devotee association will help one to gradually increase love for Sri Radha Krishna'
     }
   ];
 
@@ -33,8 +39,7 @@ const About = () => {
               Our Mission
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              We are trying to give human society an opportunity for a life of happiness, good health,
-              peace of mind and all good qualities through God Consciousness.
+              Our mission is to Spread the Harinama Sankirtana movement of Sri Chaitanya Mahaprabhu carrying forward the teachings of the great acharya A.C Bhakthivedanta Swami Srila Prabhupada appeared in the lineage of Bramha-madhva Gaudiya Vaishnava sampradaya
             </p>
           </div>
 
@@ -42,41 +47,56 @@ const About = () => {
           <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 mb-16">
             <div className="prose prose-lg max-w-none">
               <h3 className="text-3xl font-bold text-gray-800 mb-6">What is the Mission of Human Life?</h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                The mission of human life is to end the miseries of material existence and attain a blissful life.
-                We are constantly searching after happiness, but we often fail in our pursuit. We may get a glimpse
-                of happiness, but it does not last forever. We do not want miseries, but we cannot avoid them.
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Scriptures inform us that we are spiritual beings, part and parcel of the Supreme Lord Sri Krishna,
-                and by nature we are full of happiness – <span className="italic text-orange-600">ānandamayo 'bhyāsāt</span> (vedānta-sūtra).
-                Then, why do we suffer? How do we rediscover the lost happiness and lead a blissful life?
-              </p>
-            </div>
-          </div>
 
-          {/* Three Principles */}
-          <div className="mb-16">
-            <h3 className="text-3xl font-bold text-center text-gray-800 mb-12">
-              Practice These Three Simple Principles
-            </h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              {principles.map((principle, index) => {
-                const IconComponent = principle.icon;
-                return (
-                  <div
-                    key={index}
-                    className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-                  >
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center mb-6 mx-auto">
-                      <IconComponent className="text-white" size={32} />
+              {/* Sanskrit Verse */}
+              <div className="bg-gradient-to-r from-orange-50 to-blue-50 rounded-2xl p-6 mb-6">
+                <p className="text-center text-lg font-semibold text-orange-700 mb-3 italic">
+                  āhāra-nidrā-bhaya-maithunaṁ ca<br />
+                  sāmānyam etat paśubhiḥ narāṇām<br />
+                  dharmo hi teṣām adhiko viśeṣo<br />
+                  dharmeṇa hīna paśubhiḥ samānāḥ
+                </p>
+                <p className="text-center text-sm text-gray-600 font-medium">(HITOPADESA 25)</p>
+              </div>
+
+              {/* Meaning */}
+              <div className="bg-blue-50 rounded-xl p-6 mb-6">
+                <h4 className="text-lg font-bold text-gray-800 mb-3">Meaning:</h4>
+                <p className="text-gray-700 leading-relaxed">
+                  Both animals and men share the activities of eating, sleeping, mating and defending.
+                  But the special property of the humans is that they are able to engage in spiritual life.
+                  Therefore without spiritual life, humans are on the level of animals.
+                </p>
+              </div>
+
+              {/* Explanation */}
+              <p className="text-gray-600 leading-relaxed mb-8">
+                In this material world, the animals are engaged in sleeping, mating, eating, and defending them
+                even human's life cycle is like this but human is differentiated from an animal by his consciousness
+                which should be inclined towards attaining the supreme personality of godhead sri krishna. This human
+                form of life is a golden opportunity to back home back to godhead by following the simple spiritual
+                practices recommended by Srila Prabhupada they are….
+              </p>
+
+              {/* Spiritual Principles - Now Integrated */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+                {principles.map((principle, index) => {
+                  const IconComponent = principle.icon;
+                  return (
+                    <div
+                      key={index}
+                      className="bg-gradient-to-br from-orange-50 to-blue-50 rounded-xl p-6 border-2 border-orange-200 hover:border-orange-400 transition-all duration-300 transform hover:-translate-y-1"
+                    >
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center mb-4 mx-auto">
+                        <IconComponent className="text-white" size={28} />
+                      </div>
+                      <h4 className="text-lg font-bold text-gray-800 mb-2 text-center">{principle.title}</h4>
+                      <p className="text-orange-600 font-medium mb-3 text-center text-sm">{principle.description}</p>
+                      <p className="text-gray-600 text-sm leading-relaxed text-center">{principle.detail}</p>
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800 mb-3 text-center">{principle.title}</h4>
-                    <p className="text-orange-600 font-medium mb-4 text-center">{principle.description}</p>
-                    <p className="text-gray-600 text-sm leading-relaxed text-center">{principle.detail}</p>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
 
@@ -132,31 +152,26 @@ const About = () => {
             </p>
           </div>
 
-          {/* Conclusion CTA */}
+          {/* Four Regulative Principles */}
           <div className="text-center bg-white rounded-3xl shadow-xl p-8 md:p-12">
             <h3 className="text-3xl font-bold text-gray-800 mb-6">
-              Achieve a Life of Happiness
+              Four Regulative Principles
             </h3>
             <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
-              By following these three simple, but effective principles given by Srila Prabhupada,
-              we can achieve a life of happiness, good health, peace of mind, and all good qualities.
+              A person is eligible to become a pure devotee of the Lord by following these 4 regulative principles which were given by Srila Prabhupada and mentioned in the scriptures. They are:
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="flex items-center text-gray-700">
-                <Check className="text-green-500 mr-2" size={24} />
-                <span className="font-medium">Happiness</span>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+              <div className="flex items-center justify-center text-gray-700 bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-4 border-2 border-red-200">
+                <span className="font-medium">No Intoxication</span>
               </div>
-              <div className="flex items-center text-gray-700">
-                <Check className="text-green-500 mr-2" size={24} />
-                <span className="font-medium">Good Health</span>
+              <div className="flex items-center justify-center text-gray-700 bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-4 border-2 border-red-200">
+                <span className="font-medium">No Gambling</span>
               </div>
-              <div className="flex items-center text-gray-700">
-                <Check className="text-green-500 mr-2" size={24} />
-                <span className="font-medium">Peace of Mind</span>
+              <div className="flex items-center justify-center text-gray-700 bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-4 border-2 border-red-200">
+                <span className="font-medium">No Meat Eating</span>
               </div>
-              <div className="flex items-center text-gray-700">
-                <Check className="text-green-500 mr-2" size={24} />
-                <span className="font-medium">All Good Qualities</span>
+              <div className="flex items-center justify-center text-gray-700 bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-4 border-2 border-red-200">
+                <span className="font-medium">No Illicit Sex</span>
               </div>
             </div>
           </div>

@@ -6,7 +6,7 @@ const Events = () => {
     {
       date: '30',
       month: 'Dec 2025',
-      title: 'Sri Vaikuntha Ekadashi',
+      title: 'Vaikuntha Ekadashi',
       time: '5:30 AM - 12 Noon',
       location: 'Temple Complex',
       description: 'Swarga Vaasal opening at 5:30 AM. Join us for this auspicious occasion.',
@@ -39,7 +39,7 @@ const Events = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Upcoming Events
+              Upcoming Events & Festivals
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Join us for special celebrations, festivals, and spiritual programs throughout the year.

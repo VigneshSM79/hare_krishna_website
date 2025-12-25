@@ -1,5 +1,4 @@
 import React from 'react';
-import EventCarousel from './EventCarousel';
 
 const Hero = () => {
   return (
@@ -17,28 +16,16 @@ const Hero = () => {
             </h1>
           </div>
 
-          {/* Images Section */}
-          <div className="grid lg:grid-cols-2 gap-8 items-center mb-12">
-            {/* Static Image */}
-            <div className="relative">
-              <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+          {/* Main Image Section */}
+          <div className="mb-12">
+            <div className="relative max-w-5xl mx-auto">
+              <div className="rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="/Hare Krishna 1 .jpg"
-                  alt="Sri Sri Radha Krishna Deities"
-                  className="w-full h-full object-cover"
+                  src="/temple-entrance.jpg"
+                  alt="Hare Krishna Temple Avadi"
+                  className="w-full h-auto object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl">
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-orange-600">Since</p>
-                  <p className="text-gray-600 font-medium">2015</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Carousel */}
-            <div className="relative">
-              <EventCarousel />
             </div>
           </div>
 
