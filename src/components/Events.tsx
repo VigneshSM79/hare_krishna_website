@@ -4,24 +4,6 @@ import { Calendar, Clock, MapPin, Users, Star } from 'lucide-react';
 const Events = () => {
   const upcomingEvents = [
     {
-      date: '30',
-      month: 'Dec 2025',
-      title: 'Vaikuntha Ekadashi',
-      time: '5:30 AM - 12 Noon',
-      location: 'Temple Complex',
-      description: 'Swarga Vaasal opening at 5:30 AM. Join us for this auspicious occasion.',
-      featured: true,
-    },
-    {
-      date: '31',
-      month: 'Jan 2026',
-      title: 'Sri Nityananda Trayodashi',
-      time: '6:30 PM - 10 PM',
-      location: 'Temple Complex',
-      description: 'Celebration of the appearance day of Lord Nityananda Prabhu.',
-      featured: false,
-    },
-    {
       date: '3',
       month: 'Mar 2026',
       title: 'Sri Gaura Purnima',

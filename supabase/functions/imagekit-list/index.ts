@@ -1,9 +1,9 @@
 // Supabase Edge Function: imagekit-list
 // Purpose: Securely list images from ImageKit.io folder without exposing private key to frontend
 // Runtime: Deno
+// PUBLIC ACCESS: No authentication required - anyone can view gallery images
 
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.38.4";
 
 // CORS headers for browser requests
 const corsHeaders = {
@@ -37,49 +37,14 @@ serve(async (req: Request) => {
   }
 
   try {
-    // 1. Verify authentication
-    const authHeader = req.headers.get("Authorization");
-    if (!authHeader) {
-      throw new Error("Missing authorization header");
-    }
-
-    // Create Supabase client to verify the JWT token
-    // Note: SUPABASE_URL and SUPABASE_ANON_KEY are automatically provided by Supabase Edge Functions
-    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
-    const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY")!;
-
-    const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-      global: {
-        headers: { Authorization: authHeader },
-      },
-    });
-
-    // Verify the user is authenticated
-    const {
-      data: { user },
-      error: authError,
-    } = await supabase.auth.getUser();
-
-    if (authError || !user) {
-      return new Response(
-        JSON.stringify({ error: "Unauthorized - Invalid or expired token" }),
-        {
-          status: 401,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
-        }
-      );
-    }
-
-    console.log(`Authenticated user: ${user.id} (${user.email})`);
-
-    // 2. Get ImageKit private key from environment (SECURE - stays on server)
+    // 1. Get ImageKit private key from environment (SECURE - stays on server)
     const imagekitPrivateKey = Deno.env.get("IMAGEKIT_PRIVATE_KEY");
 
     if (!imagekitPrivateKey) {
       throw new Error("Missing ImageKit private key configuration");
     }
 
-    // 3. Parse request body
+    // 2. Parse request body
     const body: ListRequest = await req.json();
 
     if (!body.folderPath) {
@@ -92,12 +57,17 @@ serve(async (req: Request) => {
       );
     }
 
-    // 4. List files from ImageKit with private key (SECURE)
+    // 3. List files from ImageKit with private key (SECURE)
     const authToken = btoa(`${imagekitPrivateKey}:`);
 
-    console.log(`Listing files from folder: ${body.folderPath}`);
+    console.log(`PUBLIC REQUEST: Listing files from folder: ${body.folderPath}`);
 
-    const apiUrl = `https://api.imagekit.io/v1/files?path=${encodeURIComponent(body.folderPath)}`;
+    // Remove leading slash if present - ImageKit doesn't like it
+    const cleanPath = body.folderPath.startsWith('/') ? body.folderPath.substring(1) : body.folderPath;
+
+    console.log(`Cleaned path for ImageKit API: ${cleanPath}`);
+
+    const apiUrl = `https://api.imagekit.io/v1/files?path=${encodeURIComponent(cleanPath)}`;
 
     const listResponse = await fetch(apiUrl, {
       method: "GET",
@@ -115,9 +85,9 @@ serve(async (req: Request) => {
 
     const files: ImageKitFile[] = await listResponse.json();
 
-    console.log(`Listed ${files.length} files from folder: ${body.folderPath}`);
+    console.log(`Successfully listed ${files.length} files from folder: ${body.folderPath}`);
 
-    // 5. Return success response
+    // 4. Return success response
     return new Response(
       JSON.stringify({
         success: true,

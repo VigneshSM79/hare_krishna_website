@@ -34,6 +34,12 @@ export interface ImageKitFile {
   createdAt: string;
 }
 
+export interface ImageKitFolder {
+  name: string;
+  folderPath: string;
+  type: string;
+}
+
 /**
  * Convert File to Base64 string for Edge Function upload
  */
@@ -154,6 +160,38 @@ export const listFilesFromFolder = async (folderPath: string): Promise<ImageKitF
   } catch (error) {
     console.error('Error listing files from ImageKit:', error);
     throw error instanceof Error ? error : new Error('List files failed');
+  }
+};
+
+/**
+ * List folders from ImageKit path via secure Edge Function
+ * Private key stays on backend - NEVER exposed to browser
+ *
+ * @param folderPath - Parent folder path to list subfolders from
+ * @returns Array of ImageKit folders
+ */
+export const listFoldersFromPath = async (folderPath: string): Promise<ImageKitFolder[]> => {
+  try {
+    // Call secure Edge Function (private key stays on backend)
+    const { data, error } = await supabase.functions.invoke('imagekit-list-folders', {
+      body: {
+        folderPath,
+      },
+    });
+
+    if (error) {
+      console.error('Edge Function error:', error);
+      throw new Error(`List folders failed: ${error.message}`);
+    }
+
+    if (!data || !data.success) {
+      throw new Error(data?.error || 'List folders failed');
+    }
+
+    return data.data as ImageKitFolder[];
+  } catch (error) {
+    console.error('Error listing folders from ImageKit:', error);
+    throw error instanceof Error ? error : new Error('List folders failed');
   }
 };
 
