@@ -4,6 +4,15 @@ import { Calendar, Clock, MapPin, Users, Star } from 'lucide-react';
 const Events = () => {
   const upcomingEvents = [
     {
+      date: '31',
+      month: 'Jan 2026',
+      title: 'Sri Nityananda Trayodashi',
+      time: '6:30 PM - 10 PM',
+      location: 'Temple Complex',
+      description: 'Appearance Day of Sri Nityananda Prabhu',
+      featured: true,
+    },
+    {
       date: '3',
       month: 'Mar 2026',
       title: 'Sri Gaura Purnima',
