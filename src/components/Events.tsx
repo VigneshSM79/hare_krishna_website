@@ -10,7 +10,6 @@ const Events = () => {
       time: '6:30 PM - 10 PM',
       location: 'Temple Complex',
       description: 'Appearance Day of Sri Nityananda Prabhu',
-      featured: true,
     },
     {
       date: '3',
@@ -19,7 +18,6 @@ const Events = () => {
       time: '6:30 PM - 10 PM',
       location: 'Temple Complex',
       description: 'The appearance day of Lord Sri Chaitanya Mahaprabhu.',
-      featured: false,
     }
   ];
 
@@ -45,43 +43,33 @@ const Events = () => {
               {upcomingEvents.map((event, index) => (
                 <div
                   key={index}
-                  className={`bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 ${event.featured ? 'border-2 border-orange-200 lg:col-span-2' : ''
-                    }`}
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
                 >
-                  <div className={`${event.featured ? 'lg:flex' : ''}`}>
-                    {/* Date Card */}
-                    <div className={`${event.featured ? 'lg:w-48' : 'w-full'} bg-gradient-to-br from-orange-500 to-orange-600 p-6 text-white text-center`}>
-                      {event.featured && (
-                        <div className="flex items-center justify-center mb-2">
-                          <Star className="text-yellow-300" size={20} />
-                          <span className="ml-2 font-semibold">Featured</span>
-                        </div>
-                      )}
-                      <div className="text-4xl font-bold">{event.date}</div>
-                      <div className="text-lg font-medium opacity-90">{event.month}</div>
+                  {/* Date Card */}
+                  <div className="w-full bg-gradient-to-br from-orange-500 to-orange-600 p-6 text-white text-center">
+                    <div className="text-4xl font-bold">{event.date}</div>
+                    <div className="text-lg font-medium opacity-90">{event.month}</div>
+                  </div>
 
-                    </div>
+                  {/* Event Details */}
+                  <div className="p-8">
+                    <h4 className="text-2xl font-bold text-gray-800 mb-4">{event.title}</h4>
+                    <p className="text-gray-600 leading-relaxed mb-6">{event.description}</p>
 
-                    {/* Event Details */}
-                    <div className={`p-8 ${event.featured ? 'flex-1' : ''}`}>
-                      <h4 className="text-2xl font-bold text-gray-800 mb-4">{event.title}</h4>
-                      <p className="text-gray-600 leading-relaxed mb-6">{event.description}</p>
-
-                      <div className="space-y-3">
-                        <div className="flex items-center text-gray-600">
-                          <Clock size={18} className="mr-3 text-orange-500" />
-                          <span>{event.time}</span>
-                        </div>
-                        <div className="flex items-center text-gray-600">
-                          <MapPin size={18} className="mr-3 text-orange-500" />
-                          <span>{event.location}</span>
-                        </div>
+                    <div className="space-y-3">
+                      <div className="flex items-center text-gray-600">
+                        <Clock size={18} className="mr-3 text-orange-500" />
+                        <span>{event.time}</span>
                       </div>
-
-                      <button className="mt-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5">
-                        Register Now
-                      </button>
+                      <div className="flex items-center text-gray-600">
+                        <MapPin size={18} className="mr-3 text-orange-500" />
+                        <span>{event.location}</span>
+                      </div>
                     </div>
+
+                    <button className="mt-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5">
+                      Register Now
+                    </button>
                   </div>
                 </div>
               ))}
