@@ -58,7 +58,7 @@ const OfferService = () => {
       payload.append('services', formData.services.join(', '));
       payload.append('timestamp', new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
 
-      await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: payload });
+      await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: payload, mode: 'no-cors' });
       setFormState('success');
       setFormData({ name: '', email: '', phone: '', address: '', services: [] });
     } catch {

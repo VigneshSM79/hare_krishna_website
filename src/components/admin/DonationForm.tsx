@@ -45,7 +45,7 @@ const DonationForm: React.FC<DonationFormProps> = ({ type, scriptUrl }) => {
       payload.append('notes', form.notes);
       payload.append('timestamp', new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
 
-      await fetch(scriptUrl, { method: 'POST', body: payload });
+      await fetch(scriptUrl, { method: 'POST', body: payload, mode: 'no-cors' });
       setFormState('success');
       setForm(emptyForm);
     } catch {
