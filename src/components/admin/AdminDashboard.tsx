@@ -23,7 +23,7 @@ const TABS = [
   },
 ];
 
-const SCRIPT_URL = import.meta.env.VITE_DONATION_SCRIPT_URL as string;
+const SCRIPT_URL = import.meta.env.VITE_SEVA_SCRIPT_URL as string;
 
 const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
   const [activeTab, setActiveTab] = useState<Tab>('weekly');
