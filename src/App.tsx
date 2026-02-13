@@ -10,7 +10,7 @@ import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import OfferService from './components/OfferService';
 import Footer from './components/Footer';
-import AdminPanel from './components/AdminPanel';
+import AdminPage from './components/admin/AdminPage';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import CookieConsent from './components/CookieConsent';
@@ -39,7 +39,7 @@ function App() {
     <Router>
       <ScrollToHash />
       <Routes>
-        <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/admin" element={<AdminPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/offer-service" element={<OfferService />} />
