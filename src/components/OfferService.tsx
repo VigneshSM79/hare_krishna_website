@@ -49,7 +49,8 @@ const OfferService = () => {
     setFormState('submitting');
 
     try {
-      const payload = new FormData();
+      const payload = new URLSearchParams();
+      payload.append('sheet', 'Seva Registrations');
       payload.append('name', formData.name);
       payload.append('email', formData.email);
       payload.append('phone', formData.phone);
@@ -57,7 +58,11 @@ const OfferService = () => {
       payload.append('services', formData.services.join(', '));
       payload.append('timestamp', new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
 
-      await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: payload });
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        body: payload,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      });
       setFormState('success');
       setFormData({ name: '', email: '', phone: '', address: '', services: [] });
     } catch {

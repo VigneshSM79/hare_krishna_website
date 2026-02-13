@@ -35,7 +35,7 @@ const DonationForm: React.FC<DonationFormProps> = ({ type, scriptUrl }) => {
     setFormState('submitting');
 
     try {
-      const payload = new FormData();
+      const payload = new URLSearchParams();
       payload.append('sheet', isWeekly ? 'Weekly Donations' : 'Yearly Donations');
       payload.append('donorName', form.donorName);
       payload.append('phone', form.phone);
@@ -45,7 +45,11 @@ const DonationForm: React.FC<DonationFormProps> = ({ type, scriptUrl }) => {
       payload.append('notes', form.notes);
       payload.append('timestamp', new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
 
-      await fetch(scriptUrl, { method: 'POST', body: payload });
+      await fetch(scriptUrl, {
+        method: 'POST',
+        body: payload,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      });
       setFormState('success');
       setForm(emptyForm);
     } catch {
