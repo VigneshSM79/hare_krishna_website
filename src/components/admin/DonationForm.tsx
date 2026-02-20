@@ -35,7 +35,7 @@ const DonationForm: React.FC<DonationFormProps> = ({ type, scriptUrl }) => {
     setFormState('submitting');
 
     try {
-      const payload = new FormData();
+      const payload = new URLSearchParams();
       payload.append('sheet', isWeekly ? 'Weekly Donations' : 'Yearly Donations');
       payload.append('donorName', form.donorName);
       payload.append('phone', form.phone);

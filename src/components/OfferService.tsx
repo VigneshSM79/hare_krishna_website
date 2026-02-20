@@ -49,7 +49,7 @@ const OfferService = () => {
     setFormState('submitting');
 
     try {
-      const payload = new FormData();
+      const payload = new URLSearchParams();
       payload.append('sheet', 'Seva Registrations');
       payload.append('name', formData.name);
       payload.append('email', formData.email);
