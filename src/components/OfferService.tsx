@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Heart, Utensils, Sparkles, Flower2, CheckCircle, Loader2 } from 'lucide-react';
+import { Heart, Utensils, Sparkles, Flower2, CheckCircle, Loader2, GlassWater, Wind } from 'lucide-react';
 import Header from './Header';
 import Footer from './Footer';
 import CookieConsent from './CookieConsent';
@@ -9,6 +9,8 @@ const SERVICES = [
   { id: 'cleaning', label: 'Cleaning Service', icon: Sparkles, description: 'Help maintain the purity and cleanliness of the temple' },
   { id: 'decorating', label: 'Decorating Service', icon: Heart, description: 'Decorate the temple for festivals and daily worship' },
   { id: 'garland', label: 'Garland Making', icon: Flower2, description: 'Craft beautiful flower garlands for deity decoration' },
+  { id: 'washing', label: 'Washing Vessels', icon: GlassWater, description: 'Clean and wash vessels used for prasadam and deity worship' },
+  { id: 'sweeping', label: 'Sweeping', icon: Wind, description: 'Sweep and maintain the temple premises clean and sacred' },
 ];
 
 const GOOGLE_SCRIPT_URL = import.meta.env.VITE_SEVA_SCRIPT_URL as string;

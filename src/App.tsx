@@ -9,6 +9,7 @@ import FestivalCalendar from './components/FestivalCalendar';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import OfferService from './components/OfferService';
+import Donation from './components/Donation';
 import Footer from './components/Footer';
 import AdminPage from './components/admin/AdminPage';
 import PrivacyPolicy from './components/PrivacyPolicy';
@@ -43,6 +44,7 @@ function App() {
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/offer-service" element={<OfferService />} />
+        <Route path="/donate" element={<Donation />} />
         <Route path="/festivals" element={
           <div className="min-h-screen bg-white">
             <Header />

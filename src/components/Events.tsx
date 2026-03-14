@@ -4,20 +4,12 @@ import { Calendar, Clock, MapPin, Users, Star } from 'lucide-react';
 const Events = () => {
   const upcomingEvents = [
     {
-      date: '31',
-      month: 'Jan 2026',
-      title: 'Sri Nityananda Trayodashi',
-      time: '6:30 PM - 10 PM',
-      location: 'Temple Complex',
-      description: 'Appearance Day of Sri Nityananda Prabhu',
-    },
-    {
-      date: '3',
+      date: '26',
       month: 'Mar 2026',
-      title: 'Sri Gaura Purnima',
+      title: 'Sri Rama Navami',
       time: '6:30 PM - 10 PM',
       location: 'Temple Complex',
-      description: 'The appearance day of Lord Sri Chaitanya Mahaprabhu.',
+      description: 'The divine appearance day of Lord Sri Ramachandra. Join us for special abhishekam, kirtan, and a grand celebration honoring the Supreme Lord in His form as Maryada Purushottama.',
     }
   ];
 

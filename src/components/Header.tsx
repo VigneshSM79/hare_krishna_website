@@ -22,6 +22,7 @@ const Header = () => {
     { href: '/festivals', label: 'Festivals', type: 'route' },
     { href: '/#gallery', label: 'Gallery', type: 'route' },
     { href: '/offer-service', label: 'Offer Service', type: 'route' },
+    { href: '/donate', label: 'Donate', type: 'route' },
     { href: '/#contact', label: 'Contact', type: 'route' }
   ];
 
