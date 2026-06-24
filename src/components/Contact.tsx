@@ -19,11 +19,12 @@ const Contact = () => {
 
           <div>
             {/* Contact Information */}
-            <div className="space-y-8 max-w-4xl mx-auto">
-              <div>
-                <h3 className="font-display font-medium text-3xl text-ink mb-8">Contact Information</h3>
+            <div className="max-w-4xl mx-auto">
+              <h3 className="font-display font-medium text-3xl text-ink mb-8">Contact Information</h3>
 
-                <div className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-8 md:gap-0">
+                {/* Address */}
+                <div className="md:pr-10">
                   <div className="flex items-start space-x-4">
                     <div className="bg-saffron/10 p-3 rounded-md">
                       <MapPin className="text-saffron" size={24} />
@@ -39,19 +40,19 @@ const Contact = () => {
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Getting Here */}
-              <div className="bg-paper border border-line rounded-md p-8">
-                <h4 className="font-display font-medium text-xl text-ink mb-4 flex items-center">
-                  <Navigation className="mr-3 text-saffron" size={24} />
-                  How to Reach Us
-                </h4>
-                <div className="space-y-3 text-stone">
-                  <p><span className="font-medium">By Bus:</span> Take bus 62E or S41. The temple is a short walk from the bus stop</p>
-                  <p><span className="font-medium">By Train:</span> Avadi Railway Station is the nearest station</p>
-                  <p><span className="font-medium">By Metro:</span> Avadi Metro Station (upcoming)</p>
-                  <p><span className="font-medium">Landmark:</span> St. Peter's College</p>
+                {/* Getting Here */}
+                <div className="md:pl-10 md:border-l border-t md:border-t-0 border-line pt-8 md:pt-0">
+                  <h4 className="font-display font-medium text-xl text-ink mb-4 flex items-center">
+                    <Navigation className="mr-3 text-saffron" size={24} />
+                    How to Reach Us
+                  </h4>
+                  <div className="space-y-3 text-stone">
+                    <p><span className="font-medium">By Bus:</span> Take bus 62E or S41. The temple is a short walk from the bus stop</p>
+                    <p><span className="font-medium">By Train:</span> Avadi Railway Station is the nearest station</p>
+                    <p><span className="font-medium">By Metro:</span> Avadi Metro Station (upcoming)</p>
+                    <p><span className="font-medium">Landmark:</span> St. Peter's College</p>
+                  </div>
                 </div>
               </div>
             </div>
