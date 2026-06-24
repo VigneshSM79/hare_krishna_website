@@ -69,15 +69,15 @@ const Donation = () => {
       <Header />
       <main>
         {/* Hero Banner */}
-        <div className="pt-24 pb-16 bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
+        <div className="pt-32 pb-16 bg-paper-2">
           <div className="container mx-auto px-4 text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-500 rounded-full mb-6 shadow-lg">
-              <Heart className="text-white" size={32} />
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-saffron rounded-md mb-6">
+              <Heart className="text-paper" size={32} />
             </div>
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+            <h1 className="font-display font-medium text-4xl lg:text-5xl text-ink mb-6">
               Support the Temple
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-stone max-w-3xl mx-auto leading-relaxed">
               Your generous contributions help sustain the daily worship, festivals, and community
               services at our temple. Every donation, big or small, is a sacred offering to
               Lord Krishna and goes directly towards maintaining His abode and serving His devotees.
@@ -86,22 +86,22 @@ const Donation = () => {
         </div>
 
         {/* QR Code Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-paper">
           <div className="container mx-auto px-4">
             <div className="max-w-md mx-auto text-center">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-orange-100 rounded-full mb-4">
-                <QrCode className="text-orange-500" size={24} />
+              <div className="inline-flex items-center justify-center w-12 h-12 bg-saffron/10 rounded-md mb-4">
+                <QrCode className="text-saffron" size={24} />
               </div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">Scan to Donate via UPI</h2>
-              <p className="text-gray-500 mb-6">Use any UPI app to scan the QR code below</p>
-              <div className="bg-white border-2 border-orange-200 rounded-2xl p-6 shadow-md inline-block">
+              <h2 className="font-display font-medium text-2xl text-ink mb-2">Scan to Donate via UPI</h2>
+              <p className="text-stone mb-6">Use any UPI app to scan the QR code below</p>
+              <div className="bg-paper border border-line rounded-md p-6 inline-block">
                 <img
                   src="/upi-qr.png"
                   alt="UPI QR Code for Donation"
                   className="w-64 h-64 mx-auto object-contain"
                 />
               </div>
-              <p className="text-sm text-gray-400 mt-4">
+              <p className="text-sm text-stone mt-4">
                 After payment, please fill in the form below so we can acknowledge your donation.
               </p>
             </div>
@@ -109,21 +109,21 @@ const Donation = () => {
         </section>
 
         {/* Form Section */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-paper-2">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto">
 
               {formState === 'success' ? (
-                <div className="text-center py-16 px-8 bg-green-50 rounded-2xl border border-green-200">
-                  <CheckCircle className="text-green-500 mx-auto mb-4" size={64} />
-                  <h2 className="text-3xl font-bold text-gray-800 mb-4">Hare Krishna!</h2>
-                  <p className="text-lg text-gray-600 leading-relaxed">
+                <div className="text-center py-16 px-8 bg-paper rounded-md border border-line">
+                  <CheckCircle className="text-peacock mx-auto mb-4" size={64} />
+                  <h2 className="font-display font-medium text-3xl text-ink mb-4">Hare Krishna!</h2>
+                  <p className="text-lg text-stone leading-relaxed">
                     Thank you for your generous donation. May Lord Krishna bless you abundantly
                     for your selfless contribution to His service.
                   </p>
                   <button
                     onClick={() => setFormState('idle')}
-                    className="mt-8 px-8 py-3 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600 transition-colors"
+                    className="btn-primary mt-8"
                   >
                     Make Another Donation
                   </button>
@@ -131,14 +131,14 @@ const Donation = () => {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-8">
                   <div className="text-center mb-10">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-2">Record Your Donation</h2>
-                    <p className="text-gray-500">Fill in the details after completing your UPI payment</p>
+                    <h2 className="font-display font-medium text-2xl text-ink mb-2">Record Your Donation</h2>
+                    <p className="text-stone">Fill in the details after completing your UPI payment</p>
                   </div>
 
                   {/* Category Selection */}
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-700 mb-4">
-                      Donation Category <span className="text-orange-500">*</span>
+                    <h3 className="font-display font-medium text-lg text-ink mb-4">
+                      Donation Category <span className="text-saffron">*</span>
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {CATEGORIES.map(({ id, label, icon: Icon, description }) => {
@@ -148,20 +148,20 @@ const Donation = () => {
                             key={id}
                             type="button"
                             onClick={() => handleCategorySelect(id)}
-                            className={`text-left p-5 rounded-2xl border-2 transition-all duration-200 ${isSelected
-                                ? 'border-green-500 bg-green-50 shadow-md'
-                                : 'border-gray-200 bg-white hover:border-green-300 hover:bg-green-50'
+                            className={`text-left p-5 rounded-md border transition-colors duration-200 ${isSelected
+                                ? 'border-saffron bg-saffron/5'
+                                : 'border-line bg-paper hover:border-saffron/50'
                               }`}
                           >
                             <div className="flex items-center space-x-3 mb-2">
-                              <div className={`p-2 rounded-lg ${isSelected ? 'bg-green-500 text-white' : 'bg-orange-100 text-orange-500'}`}>
+                              <div className={`p-2 rounded-md ${isSelected ? 'bg-saffron text-paper' : 'bg-saffron/10 text-saffron'}`}>
                                 <Icon size={20} />
                               </div>
-                              <span className={`font-semibold ${isSelected ? 'text-green-700' : 'text-gray-700'}`}>
+                              <span className={`font-display font-medium ${isSelected ? 'text-saffron' : 'text-ink'}`}>
                                 {label}
                               </span>
                             </div>
-                            <p className="text-sm text-gray-500 leading-relaxed">{description}</p>
+                            <p className="text-sm text-stone leading-relaxed">{description}</p>
                           </button>
                         );
                       })}
@@ -172,12 +172,12 @@ const Donation = () => {
                   </div>
 
                   {/* Donation Details */}
-                  <div className="bg-orange-50 rounded-2xl p-8 space-y-5">
-                    <h3 className="text-lg font-semibold text-gray-700 mb-4">Your Details</h3>
+                  <div className="bg-paper border border-line rounded-md p-8 space-y-5">
+                    <h3 className="font-display font-medium text-lg text-ink mb-4">Your Details</h3>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Full Name <span className="text-orange-500">*</span>
+                      <label className="block text-sm font-medium text-ink mb-1">
+                        Full Name <span className="text-saffron">*</span>
                       </label>
                       <input
                         type="text"
@@ -186,13 +186,13 @@ const Donation = () => {
                         onChange={handleChange}
                         required
                         placeholder="Enter your full name"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition"
+                        className="w-full px-4 py-3 rounded-sm border border-line bg-paper focus:outline-none focus:ring-2 focus:ring-saffron focus:border-transparent transition"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Phone Number <span className="text-orange-500">*</span>
+                      <label className="block text-sm font-medium text-ink mb-1">
+                        Phone Number <span className="text-saffron">*</span>
                       </label>
                       <input
                         type="tel"
@@ -201,13 +201,13 @@ const Donation = () => {
                         onChange={handleChange}
                         required
                         placeholder="+91 XXXXX XXXXX"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition"
+                        className="w-full px-4 py-3 rounded-sm border border-line bg-paper focus:outline-none focus:ring-2 focus:ring-saffron focus:border-transparent transition"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Amount (₹) <span className="text-orange-500">*</span>
+                      <label className="block text-sm font-medium text-ink mb-1">
+                        Amount (₹) <span className="text-saffron">*</span>
                       </label>
                       <input
                         type="number"
@@ -217,13 +217,13 @@ const Donation = () => {
                         required
                         min="1"
                         placeholder="Enter donation amount"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition"
+                        className="w-full px-4 py-3 rounded-sm border border-line bg-paper focus:outline-none focus:ring-2 focus:ring-saffron focus:border-transparent transition"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Transaction / Reference ID <span className="text-orange-500">*</span>
+                      <label className="block text-sm font-medium text-ink mb-1">
+                        Transaction / Reference ID <span className="text-saffron">*</span>
                       </label>
                       <input
                         type="text"
@@ -232,12 +232,12 @@ const Donation = () => {
                         onChange={handleChange}
                         required
                         placeholder="UPI transaction reference number"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition"
+                        className="w-full px-4 py-3 rounded-sm border border-line bg-paper focus:outline-none focus:ring-2 focus:ring-saffron focus:border-transparent transition"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                      <label className="block text-sm font-medium text-ink mb-1">
                         Notes (Optional)
                       </label>
                       <textarea
@@ -246,7 +246,7 @@ const Donation = () => {
                         onChange={handleChange}
                         rows={3}
                         placeholder="Any message or special purpose for the donation"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition resize-none"
+                        className="w-full px-4 py-3 rounded-sm border border-line bg-paper focus:outline-none focus:ring-2 focus:ring-saffron focus:border-transparent transition resize-none"
                       />
                     </div>
                   </div>
@@ -260,7 +260,7 @@ const Donation = () => {
                   <button
                     type="submit"
                     disabled={formState === 'submitting'}
-                    className="w-full py-4 bg-orange-500 text-white rounded-xl font-bold text-lg hover:bg-orange-600 active:scale-95 transition-all duration-200 shadow-lg disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                    className="btn-primary w-full py-4 text-lg disabled:opacity-60 disabled:cursor-not-allowed space-x-2"
                   >
                     {formState === 'submitting' ? (
                       <>

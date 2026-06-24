@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sunrise, Sun, Sunset, Moon, Users, BookOpen, Music, Utensils } from 'lucide-react';
+import { Sunrise, Sunset, Users, BookOpen, Music, Utensils } from 'lucide-react';
 
 const Programs = () => {
   const dailyPrograms = [
@@ -8,21 +8,18 @@ const Programs = () => {
       title: 'Mangala Arati',
       description: 'Morning prayers and offering to the deities',
       icon: Sunrise,
-      color: 'from-pink-400 to-orange-400'
     },
     {
       time: '6:30 PM',
       title: 'Sandhya Arati',
       description: 'Evening prayers and kirtan',
       icon: Sunset,
-      color: 'from-orange-400 to-red-400'
     },
     {
       time: 'Saturday',
       title: 'Special Events',
       description: 'Saturday Feast Program',
       icon: Users,
-      color: 'from-blue-400 to-purple-400'
     }
   ];
 
@@ -72,38 +69,38 @@ const Programs = () => {
   ];
 
   return (
-    <section id="programs" className="py-20 bg-gradient-to-br from-blue-50 to-orange-50">
+    <section id="programs" className="py-20 bg-paper">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+            <h2 className="font-display font-medium text-4xl lg:text-5xl text-ink mb-6">
               Daily Programs & Schedule
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Join us in our daily spiritual activities and weekly programs designed to 
+            <p className="text-xl text-stone max-w-3xl mx-auto leading-relaxed">
+              Join us in our daily spiritual activities and weekly programs designed to
               deepen your connection with Krishna consciousness.
             </p>
           </div>
 
           {/* Daily Programs */}
           <div>
-            <h3 className="text-3xl font-bold text-center text-gray-800 mb-12">Daily Schedule</h3>
+            <h3 className="font-display font-medium text-3xl text-center text-ink mb-12">Daily Schedule</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {dailyPrograms.map((program, index) => {
                 const IconComponent = program.icon;
                 return (
                   <div
                     key={index}
-                    className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                    className="bg-paper-2 rounded-md p-6 border border-line hover:border-stone transition-colors duration-200"
                   >
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${program.color} flex items-center justify-center mb-4 mx-auto`}>
-                      <IconComponent className="text-white" size={28} />
+                    <div className="w-16 h-16 rounded-md bg-saffron/10 flex items-center justify-center mb-4 mx-auto">
+                      <IconComponent className="text-saffron" size={28} />
                     </div>
                     <div className="text-center">
-                      <p className="text-2xl font-bold text-orange-600 mb-2">{program.time}</p>
-                      <h4 className="text-xl font-semibold text-gray-800 mb-3">{program.title}</h4>
-                      <p className="text-gray-600 leading-relaxed">{program.description}</p>
+                      <p className="font-display text-2xl text-saffron mb-2">{program.time}</p>
+                      <h4 className="font-display font-medium text-xl text-ink mb-3">{program.title}</h4>
+                      <p className="text-stone leading-relaxed">{program.description}</p>
                     </div>
                   </div>
                 );

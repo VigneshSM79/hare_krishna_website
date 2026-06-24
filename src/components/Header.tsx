@@ -1,85 +1,106 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import LotusMark from './LotusMark';
+
+const navigationItems = [
+  { href: '/#home', label: 'Home' },
+  { href: '/#about', label: 'About' },
+  { href: '/#programs', label: 'Programs' },
+  { href: '/#events', label: 'Events' },
+  { href: '/festivals', label: 'Festivals' },
+  { href: '/#gallery', label: 'Gallery' },
+  { href: '/offer-service', label: 'Offer Service' },
+  { href: '/#contact', label: 'Contact' },
+];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
+  // Close the mobile menu whenever the route changes.
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
-  const navigationItems = [
-    { href: '/#home', label: 'Home', type: 'route' },
-    { href: '/#about', label: 'About', type: 'route' },
-    { href: '/#programs', label: 'Programs', type: 'route' },
-    { href: '/#events', label: 'Events', type: 'route' },
-    { href: '/festivals', label: 'Festivals', type: 'route' },
-    { href: '/#gallery', label: 'Gallery', type: 'route' },
-    { href: '/offer-service', label: 'Offer Service', type: 'route' },
-    { href: '/donate', label: 'Donate', type: 'route' },
-    { href: '/#contact', label: 'Contact', type: 'route' }
-  ];
+  const isActive = (href: string) => {
+    if (href.startsWith('/#')) return location.pathname === '/';
+    return location.pathname === href;
+  };
 
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
-      }`}>
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-3">
-          {/* Logo/Brand */}
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">🕉</span>
-            </div>
-            <h1 className="font-bold text-xl text-gray-800">
-              Hare Krishna Temple Avadi
-            </h1>
-          </div>
+    <header className="fixed inset-x-0 top-0 z-50 bg-paper/95 backdrop-blur-sm border-b border-line">
+      <div className="container mx-auto px-4 lg:px-6">
+        <div className="flex items-center justify-between h-[68px]">
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Wordmark */}
+          <Link to="/" className="flex items-center gap-3">
+            <LotusMark />
+            <span className="leading-none">
+              <span className="block font-display text-[1.35rem] font-medium text-ink">
+                Hare Krishna Temple
+              </span>
+              <span className="block caption mt-0.5 text-[0.68rem]">Avadi · Chennai</span>
+            </span>
+          </Link>
+
+          {/* Desktop nav */}
+          <nav className="hidden lg:flex items-center gap-7">
             {navigationItems.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
-                className="font-medium text-gray-700 hover:text-orange-500 transition-colors duration-200 relative group"
+                className={`relative font-sans text-[0.95rem] font-medium transition-colors duration-200 group ${
+                  isActive(item.href) ? 'text-saffron' : 'text-ink hover:text-saffron'
+                }`}
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-200 group-hover:w-full"></span>
+                <span
+                  className={`absolute -bottom-1.5 left-0 h-px bg-saffron transition-all duration-200 ${
+                    isActive(item.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
+                />
               </Link>
             ))}
+            <Link to="/donate" className="btn-primary px-5 py-2 text-[0.9rem]">
+              Donate
+            </Link>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile controls */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <Link to="/donate" className="btn-primary px-4 py-2 text-[0.85rem]">
+              Donate
+            </Link>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 text-ink hover:text-saffron transition-colors"
+              aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile nav */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg border-t">
-          <div className="container mx-auto px-4 py-4">
+        <div className="lg:hidden bg-paper border-t border-line">
+          <nav className="container mx-auto px-4 py-2">
             {navigationItems.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
-                className="block py-3 text-gray-700 font-medium hover:text-orange-500 hover:bg-orange-50 px-2 rounded transition-colors"
                 onClick={() => setIsMenuOpen(false)}
+                className={`block py-3 font-sans font-medium border-b border-line last:border-0 transition-colors ${
+                  isActive(item.href) ? 'text-saffron' : 'text-ink hover:text-saffron'
+                }`}
               >
                 {item.label}
               </Link>
             ))}
-          </div>
+          </nav>
         </div>
       )}
     </header>

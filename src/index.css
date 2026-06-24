@@ -1,3 +1,69 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-ink;
+    line-height: 1.1;
+  }
+
+  ::selection {
+    background: #CD6A2B;
+    color: #FBFAF7;
+  }
+}
+
+@layer components {
+  /* Small saffron, tracked-caps label that introduces a section */
+  .eyebrow {
+    @apply font-sans font-semibold uppercase text-saffron;
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+  }
+
+  /* Tracked-caps metadata / image captions */
+  .caption {
+    @apply font-sans font-medium uppercase text-stone;
+    font-size: 0.8125rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* Primary call to action */
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-saffron text-paper font-sans font-semibold rounded-sm px-6 py-3 transition-colors duration-200;
+  }
+  .btn-primary:hover {
+    @apply bg-saffron-ink;
+  }
+
+  /* Quiet secondary action: ink text with a growing saffron underline */
+  .link-underline {
+    @apply relative font-sans font-medium text-ink transition-colors duration-200;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute left-0 -bottom-0.5 h-px w-0 bg-saffron transition-all duration-200;
+  }
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

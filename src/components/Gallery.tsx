@@ -143,15 +143,15 @@ const Gallery = () => {
   const showImages = selectedCategory && (selectedSubCategory || !currentCategory?.subCategories);
 
   return (
-    <section id="gallery" className="py-20 bg-gradient-to-br from-orange-50 to-blue-50">
+    <section id="gallery" className="py-20 bg-paper">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+            <h2 className="font-display font-medium text-4xl lg:text-5xl text-ink mb-6">
               Temple Gallery
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-stone max-w-3xl mx-auto leading-relaxed">
               {breadcrumb.length > 0
                 ? breadcrumb.join(' > ')
                 : 'Explore our photo collections capturing moments of devotion and celebration.'}
@@ -163,7 +163,7 @@ const Gallery = () => {
             <div className="mb-8">
               <button
                 onClick={selectedSubCategory ? handleBackToSubCategories : handleBackToCategories}
-                className="flex items-center text-orange-600 hover:text-orange-700 font-medium transition-colors"
+                className="flex items-center text-saffron hover:text-saffron-ink font-medium transition-colors"
               >
                 <ArrowLeft size={20} className="mr-2" />
                 {selectedSubCategory ? `Back to ${currentCategory?.title}` : 'Back to Gallery Categories'}
@@ -178,17 +178,17 @@ const Gallery = () => {
                 <div
                   key={category.id}
                   onClick={() => handleCategoryClick(category)}
-                  className="group cursor-pointer overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 bg-white"
+                  className="group cursor-pointer overflow-hidden rounded-md border border-line hover:border-stone transition-colors duration-200 bg-paper"
                 >
                   <div className="aspect-[4/3] overflow-hidden">
                     <img
                       src={category.coverPhoto}
                       alt={category.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-                  <div className="p-6 text-center bg-white">
-                    <h3 className="text-xl font-bold text-gray-800 group-hover:text-orange-600 transition-colors">
+                  <div className="p-6 text-center bg-paper">
+                    <h3 className="font-display font-medium text-xl text-ink group-hover:text-saffron transition-colors">
                       {category.title}
                     </h3>
                   </div>
@@ -228,8 +228,8 @@ const Gallery = () => {
             <>
               {loading ? (
                 <div className="flex flex-col items-center justify-center py-12">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mb-4"></div>
-                  <p className="text-gray-600">Loading images...</p>
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-saffron mb-4"></div>
+                  <p className="text-stone">Loading images...</p>
                 </div>
               ) : error ? (
                 <div className="text-center py-12">
@@ -241,14 +241,14 @@ const Gallery = () => {
                         : currentCategory?.folderPath;
                       if (folderPath) fetchGalleryImages(folderPath);
                     }}
-                    className="bg-orange-500 text-white px-6 py-3 rounded-full hover:bg-orange-600 transition-colors"
+                    className="btn-primary"
                   >
                     Retry
                   </button>
                 </div>
               ) : galleryImages.length === 0 ? (
                 <div className="text-center py-12">
-                  <p className="text-gray-500 text-lg">No images found in this category</p>
+                  <p className="text-stone text-lg">No images found in this category</p>
                 </div>
               ) : (
                 <>
@@ -256,18 +256,18 @@ const Gallery = () => {
                     {galleryImages.map((image, index) => (
                       <div
                         key={image.fileId}
-                        className="relative group cursor-pointer overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                        className="relative group cursor-pointer overflow-hidden rounded-md border border-line hover:border-stone transition-colors duration-200"
                         onClick={() => setSelectedImage(index)}
                       >
                         <div className="aspect-square">
                           <img
                             src={image.url}
                             alt={image.name}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         </div>
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <div className="absolute bottom-4 left-4 text-white">
+                        <div className="absolute inset-0 bg-ink/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="absolute bottom-4 left-4 text-paper">
                             <p className="font-semibold">{image.name}</p>
                           </div>
                         </div>
@@ -277,17 +277,17 @@ const Gallery = () => {
 
                   {/* Statistics */}
                   <div className="grid md:grid-cols-3 gap-8">
-                    <div className="text-center bg-white rounded-2xl p-8 shadow-lg">
-                      <div className="text-4xl font-bold text-orange-600 mb-2">{galleryImages.length}</div>
-                      <p className="text-gray-600 font-medium">Photos in Album</p>
+                    <div className="text-center bg-paper rounded-md border border-line p-8">
+                      <div className="font-display text-4xl text-saffron mb-2">{galleryImages.length}</div>
+                      <p className="text-stone font-medium">Photos in Album</p>
                     </div>
-                    <div className="text-center bg-white rounded-2xl p-8 shadow-lg">
-                      <div className="text-4xl font-bold text-blue-600 mb-2">10+</div>
-                      <p className="text-gray-600 font-medium">Festivals Celebrated</p>
+                    <div className="text-center bg-paper rounded-md border border-line p-8">
+                      <div className="font-display text-4xl text-ink mb-2">10+</div>
+                      <p className="text-stone font-medium">Festivals Celebrated</p>
                     </div>
-                    <div className="text-center bg-white rounded-2xl p-8 shadow-lg">
-                      <div className="text-4xl font-bold text-green-600 mb-2">1000+</div>
-                      <p className="text-gray-600 font-medium">Community Members</p>
+                    <div className="text-center bg-paper rounded-md border border-line p-8">
+                      <div className="font-display text-4xl text-ink mb-2">1000+</div>
+                      <p className="text-stone font-medium">Community Members</p>
                     </div>
                   </div>
                 </>
