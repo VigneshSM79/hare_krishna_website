@@ -2,17 +2,15 @@ import React from 'react';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative bg-paper min-h-screen">
-      <div className="container mx-auto px-4 pt-32 pb-20">
+    <section id="home" className="relative bg-paper">
+      <div className="container mx-auto px-4 pt-28 pb-20">
         <div className="max-w-6xl mx-auto">
 
           {/* Main Heading */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h1 className="font-display font-medium text-ink text-4xl md:text-5xl lg:text-6xl leading-tight">
-              Welcome to
-              <span className="block text-saffron pb-2">
-                Hare Krishna Temple Avadi
-              </span>
+              Welcome to{' '}
+              <span className="text-saffron">Hare Krishna Temple Avadi</span>
             </h1>
           </div>
 
