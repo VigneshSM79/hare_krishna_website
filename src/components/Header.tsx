@@ -24,7 +24,9 @@ const Header = () => {
   }, [location.pathname]);
 
   const isActive = (href: string) => {
-    if (href.startsWith('/#')) return location.pathname === '/';
+    // On-page hash links (Home, About, …) aren't persistently highlighted —
+    // they only turn saffron on hover. Real route pages stay highlighted.
+    if (href.startsWith('/#')) return false;
     return location.pathname === href;
   };
 
