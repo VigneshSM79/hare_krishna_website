@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import LotusMark from './LotusMark';
 
 const navigationItems = [
   { href: '/#home', label: 'Home' },
@@ -37,7 +36,13 @@ const Header = () => {
 
           {/* Wordmark */}
           <Link to="/" className="flex items-center gap-3">
-            <LotusMark />
+            <img
+              src="/temple-emblem.png"
+              alt="Hare Krishna Temple emblem"
+              width={30}
+              height={30}
+              className="w-[30px] h-[30px] rounded-full object-cover shrink-0"
+            />
             <span className="leading-none">
               <span className="block font-display text-[1.35rem] font-medium text-ink">
                 Hare Krishna Temple
