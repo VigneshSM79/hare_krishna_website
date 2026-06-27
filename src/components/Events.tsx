@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, Clock, MapPin, Users, Star } from 'lucide-react';
+import { Clock, MapPin } from 'lucide-react';
 
 const Events = () => {
   const upcomingEvents = [
@@ -14,15 +14,15 @@ const Events = () => {
   ];
 
   return (
-    <section id="events" className="py-20 bg-white">
+    <section id="events" className="py-20 bg-paper-2">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+            <h2 className="font-display font-medium text-4xl lg:text-5xl text-ink mb-6">
               Upcoming Events & Festivals
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-stone max-w-3xl mx-auto leading-relaxed">
               Join us for special celebrations, festivals, and spiritual programs throughout the year.
               Experience the joy of community worship and devotional activities.
             </p>
@@ -30,36 +30,36 @@ const Events = () => {
 
           {/* Upcoming Events */}
           <div>
-            <h3 className="text-3xl font-bold text-gray-800 mb-12 text-center">Special Events</h3>
+            <h3 className="font-display font-medium text-3xl text-ink mb-12 text-center">Special Events</h3>
             <div className="grid lg:grid-cols-2 gap-8">
               {upcomingEvents.map((event, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                  className="bg-paper rounded-md border border-line overflow-hidden hover:border-stone transition-colors duration-200"
                 >
                   {/* Date Card */}
-                  <div className="w-full bg-gradient-to-br from-orange-500 to-orange-600 p-6 text-white text-center">
-                    <div className="text-4xl font-bold">{event.date}</div>
-                    <div className="text-lg font-medium opacity-90">{event.month}</div>
+                  <div className="w-full bg-saffron p-6 text-paper text-center">
+                    <div className="font-display text-4xl">{event.date}</div>
+                    <div className="text-lg font-medium text-paper/90">{event.month}</div>
                   </div>
 
                   {/* Event Details */}
                   <div className="p-8">
-                    <h4 className="text-2xl font-bold text-gray-800 mb-4">{event.title}</h4>
-                    <p className="text-gray-600 leading-relaxed mb-6">{event.description}</p>
+                    <h4 className="font-display font-medium text-2xl text-ink mb-4">{event.title}</h4>
+                    <p className="text-stone leading-relaxed mb-6">{event.description}</p>
 
                     <div className="space-y-3">
-                      <div className="flex items-center text-gray-600">
-                        <Clock size={18} className="mr-3 text-orange-500" />
+                      <div className="flex items-center text-stone">
+                        <Clock size={18} className="mr-3 text-saffron" />
                         <span>{event.time}</span>
                       </div>
-                      <div className="flex items-center text-gray-600">
-                        <MapPin size={18} className="mr-3 text-orange-500" />
+                      <div className="flex items-center text-stone">
+                        <MapPin size={18} className="mr-3 text-saffron" />
                         <span>{event.location}</span>
                       </div>
                     </div>
 
-                    <button className="mt-6 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-medium hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5">
+                    <button className="btn-primary mt-6">
                       Register Now
                     </button>
                   </div>

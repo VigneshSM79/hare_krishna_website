@@ -32,24 +32,24 @@ const CookieConsent = () => {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 animate-slide-up">
-      <div className="bg-gradient-to-r from-gray-900 to-gray-800 border-t-4 border-orange-500 shadow-2xl">
+      <div className="bg-ink border-t-2 border-saffron">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Icon and Message */}
             <div className="flex items-start space-x-4 flex-1">
               <div className="flex-shrink-0">
-                <Cookie className="text-orange-500" size={40} />
+                <Cookie className="text-saffron" size={40} />
               </div>
-              <div className="text-white">
-                <h3 className="text-lg font-bold mb-2 flex items-center">
-                  <Shield size={20} className="mr-2 text-orange-500" />
+              <div className="text-paper">
+                <h3 className="font-display font-medium text-lg mb-2 flex items-center">
+                  <Shield size={20} className="mr-2 text-saffron" />
                   We Value Your Privacy
                 </h3>
-                <p className="text-sm text-gray-300 leading-relaxed">
+                <p className="text-sm text-paper/80 leading-relaxed">
                   We use cookies to enhance your browsing experience, serve personalized content, and analyze our
                   traffic. By clicking "Accept All", you consent to our use of cookies.
                   {' '}
-                  <Link to="/privacy" className="text-orange-400 hover:text-orange-300 underline">
+                  <Link to="/privacy" className="text-saffron hover:text-saffron-ink underline">
                     Learn more
                   </Link>
                 </p>
@@ -60,13 +60,13 @@ const CookieConsent = () => {
             <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
               <button
                 onClick={handleDecline}
-                className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-medium transition-colors duration-200 flex items-center justify-center"
+                className="px-6 py-3 rounded-sm font-medium border border-paper/30 text-paper hover:bg-paper/10 transition-colors duration-200 flex items-center justify-center"
               >
                 Decline
               </button>
               <button
                 onClick={handleAccept}
-                className="px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-lg font-medium transition-all duration-200 shadow-lg flex items-center justify-center"
+                className="btn-primary"
               >
                 Accept All
               </button>
@@ -75,7 +75,7 @@ const CookieConsent = () => {
             {/* Close button (optional) */}
             <button
               onClick={handleDecline}
-              className="absolute top-2 right-2 md:relative md:top-auto md:right-auto text-gray-400 hover:text-white transition-colors"
+              className="absolute top-2 right-2 md:relative md:top-auto md:right-auto text-paper/60 hover:text-paper transition-colors"
               aria-label="Close"
             >
               <X size={20} />
@@ -85,21 +85,21 @@ const CookieConsent = () => {
           {/* Additional Links */}
           <div className="mt-4 text-center md:text-left">
             <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm">
-              <Link to="/privacy" className="text-gray-400 hover:text-orange-400 transition-colors">
+              <Link to="/privacy" className="text-paper/60 hover:text-saffron transition-colors">
                 Privacy Policy
               </Link>
-              <span className="text-gray-600">|</span>
-              <Link to="/terms" className="text-gray-400 hover:text-orange-400 transition-colors">
+              <span className="text-paper/40">|</span>
+              <Link to="/terms" className="text-paper/60 hover:text-saffron transition-colors">
                 Terms of Service
               </Link>
-              <span className="text-gray-600">|</span>
+              <span className="text-paper/40">|</span>
               <button
                 onClick={() => {
                   localStorage.removeItem('cookieConsent');
                   localStorage.removeItem('cookieConsentDate');
                   setShowBanner(true);
                 }}
-                className="text-gray-400 hover:text-orange-400 transition-colors"
+                className="text-paper/60 hover:text-saffron transition-colors"
               >
                 Cookie Settings
               </button>

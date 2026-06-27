@@ -2,24 +2,22 @@ import React from 'react';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative bg-gradient-to-br from-orange-50 via-white to-blue-50 min-h-screen">
-      <div className="container mx-auto px-4 py-20">
+    <section id="home" className="relative bg-paper">
+      <div className="container mx-auto px-4 pt-28 pb-20">
         <div className="max-w-6xl mx-auto">
 
           {/* Main Heading */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight">
-              Welcome to
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-500 pb-2">
-                Hare Krishna Temple Avadi
-              </span>
+          <div className="text-center mb-8">
+            <h1 className="font-display font-medium text-ink text-4xl md:text-5xl lg:text-6xl leading-tight">
+              Welcome to{' '}
+              <span className="text-saffron">Hare Krishna Temple Avadi</span>
             </h1>
           </div>
 
           {/* Main Image Section */}
           <div className="mb-12">
             <div className="relative max-w-5xl mx-auto">
-              <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <div className="rounded-md overflow-hidden border border-line">
                 <img
                   src="/temple-entrance.jpg"
                   alt="Hare Krishna Temple Avadi"
@@ -31,11 +29,11 @@ const Hero = () => {
 
           {/* Content Below Images */}
           <div className="text-center space-y-8">
-            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl text-stone leading-relaxed max-w-4xl mx-auto">
               Experience divine consciousness through devotion, spiritual practice, and community service
             </p>
 
-            <p className="text-gray-600 text-center text-lg">
+            <p className="text-stone text-center text-lg">
               Spreading the Hare Krishna Maha Mantra and teachings of Lord Sri Chaitanya Mahaprabhu
             </p>
           </div>
