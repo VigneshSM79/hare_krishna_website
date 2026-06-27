@@ -140,20 +140,18 @@ export const deleteFromImageKit = async (fileId: string): Promise<void> => {
  */
 export const listFilesFromFolder = async (folderPath: string): Promise<ImageKitFile[]> => {
   try {
-    // Call secure Edge Function (private key stays on backend)
-    const { data, error } = await supabase.functions.invoke('imagekit-list', {
-      body: {
-        folderPath,
-      },
+    // Call the Vercel serverless function (private key stays on the server).
+    // Replaces the former Supabase Edge Function.
+    const response = await fetch('/api/imagekit-list', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ folderPath }),
     });
 
-    if (error) {
-      console.error('Edge Function error:', error);
-      throw new Error(`List files failed: ${error.message}`);
-    }
+    const data = await response.json();
 
-    if (!data || !data.success) {
-      throw new Error(data?.error || 'List files failed');
+    if (!response.ok || !data?.success) {
+      throw new Error(data?.error || `List files failed (${response.status})`);
     }
 
     return data.data as ImageKitFile[];
