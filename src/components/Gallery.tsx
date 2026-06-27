@@ -25,6 +25,17 @@ interface GalleryCategory {
   subCategories?: SubCategory[];
 }
 
+// Append ImageKit transformation params so we serve right-sized, compressed,
+// auto-format (WebP/AVIF) images instead of the multi-MB camera originals.
+// q = quality, w = max width, f-auto = best format for the browser.
+const ikTransform = (url: string, tr: string): string =>
+  `${url}${url.includes('?') ? '&' : '?'}tr=${tr}`;
+
+// ~500px square thumbnails for the grid (originals are ~2.5 MB → ~48 KB).
+const ikThumb = (url: string): string => ikTransform(url, 'w-500,h-500,q-75,f-auto');
+// Larger but still optimized image for the full-screen lightbox.
+const ikFull = (url: string): string => ikTransform(url, 'w-1600,q-80,f-auto');
+
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [galleryImages, setGalleryImages] = useState<ImageKitImage[]>([]);
@@ -261,8 +272,10 @@ const Gallery = () => {
                       >
                         <div className="aspect-square">
                           <img
-                            src={image.url}
+                            src={ikThumb(image.url)}
                             alt={image.name}
+                            loading="lazy"
+                            decoding="async"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         </div>
@@ -309,7 +322,7 @@ const Gallery = () => {
             </button>
 
             <img
-              src={galleryImages[selectedImage].url}
+              src={ikFull(galleryImages[selectedImage].url)}
               alt={galleryImages[selectedImage].name}
               className="max-w-full max-h-[80vh] object-contain rounded-lg"
             />
