@@ -4,13 +4,25 @@ import { Clock, MapPin } from 'lucide-react';
 const Events = () => {
   const upcomingEvents = [
     {
-      date: '26',
-      month: 'Mar 2026',
-      title: 'Sri Rama Navami',
-      time: '6:30 PM - 10 PM',
+      date: '28',
+      month: 'Aug 2026',
+      title: 'Sri Balarama Purnima',
+      time: '6:00 PM onwards', // TODO: confirm program timing
       location: 'Temple Complex',
-      description: 'The divine appearance day of Lord Sri Ramachandra. Join us for special abhishekam, kirtan, and a grand celebration honoring the Supreme Lord in His form as Maryada Purushottama.',
-    }
+      description: 'The divine appearance day of Lord Balarama, elder brother of Lord Krishna and the source of all spiritual strength. Join us for special abhishekam, kirtan, and offerings honoring the Lord on this auspicious full-moon day.',
+      image: '/festival-balarama.jpg',
+      imagePosition: 'center',
+    },
+    {
+      date: '04',
+      month: 'Sep 2026',
+      title: 'Sri Krishna Janmashtami',
+      time: '6:00 PM – 12:30 AM', // TODO: confirm program timing
+      location: 'Temple Complex',
+      description: 'The most joyous celebration of the year — the midnight appearance of Lord Sri Krishna. Join us for abhishekam, bhajans, dramatic pastimes, the grand midnight arati, and mahaprasadam.',
+      image: '/festival-janmashtami.jpg',
+      imagePosition: 'top',
+    },
   ];
 
   return (
@@ -37,10 +49,18 @@ const Events = () => {
                   key={index}
                   className="bg-paper rounded-md border border-line overflow-hidden hover:border-stone transition-colors duration-200"
                 >
-                  {/* Date Card */}
-                  <div className="w-full bg-saffron p-6 text-paper text-center">
-                    <div className="font-display text-4xl">{event.date}</div>
-                    <div className="text-lg font-medium text-paper/90">{event.month}</div>
+                  {/* Festival photo with date badge */}
+                  <div className="relative">
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      className="w-full h-56 object-cover"
+                      style={{ objectPosition: event.imagePosition }}
+                    />
+                    <div className="absolute top-4 left-4 bg-saffron text-paper px-4 py-2 text-center rounded-md">
+                      <div className="font-display text-3xl leading-none">{event.date}</div>
+                      <div className="text-sm font-medium text-paper/90 mt-1">{event.month}</div>
+                    </div>
                   </div>
 
                   {/* Event Details */}
@@ -58,10 +78,6 @@ const Events = () => {
                         <span>{event.location}</span>
                       </div>
                     </div>
-
-                    <button className="btn-primary mt-6">
-                      Register Now
-                    </button>
                   </div>
                 </div>
               ))}
