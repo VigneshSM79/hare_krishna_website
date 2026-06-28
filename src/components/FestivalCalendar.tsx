@@ -2,21 +2,23 @@ import React, { useEffect, useState } from 'react';
 import { Calendar as CalendarIcon, ChevronRight, X } from 'lucide-react';
 import festivalsRaw from '../content/festivals.md?raw';
 
-type Festival = { name: string; image: string; position?: string };
+type Festival = { name: string; image: string; position?: string; date: string };
 
+// Dates follow the Vaishnava (Gaurabda) lunar calendar and shift each year;
+// the values below are the 2026 observance dates (Chennai / Tamil Nadu).
 const festivals: Festival[] = [
-    { name: "Gaura Purnima", image: "/festival-gaura-purnima.jpg", position: "center 30%" },
-    { name: "Rama Navami", image: "/festival-rama-navami.jpg", position: "center 22%" },
-    { name: "Narasimha Chaturdashi", image: "/festival-narasimha.jpg", position: "center 18%" },
-    { name: "Balarama Purnima", image: "/festival-balarama.jpg", position: "center" },
-    { name: "Sri Krishna Janmashtami", image: "/festival-janmashtami.jpg", position: "center 25%" },
-    { name: "Srila Prabhupada Vyasa Puja", image: "/festival-prabhupada.jpg", position: "center 12%" },
-    { name: "Radhastami", image: "/festival-radhastami.jpg", position: "center 22%" },
-    { name: "Kartik Masam", image: "/festival-kartik.jpg", position: "center 28%" },
-    { name: "Govardhan Puja", image: "/festival-govardhan.jpg", position: "center 48%" },
-    { name: "Vaikuntha Ekadashi", image: "/festival-vaikuntha.jpg", position: "center 55%" },
-    { name: "Kannan Pongal", image: "/festival-kannan-pongal.jpg", position: "center 28%" },
-    { name: "Nityananda Trayodashi", image: "/festival-nityananda.jpg", position: "center 38%" },
+    { name: "Nityananda Trayodashi", image: "/festival-nityananda.jpg", position: "center 38%", date: "Jan 31, 2026" },
+    { name: "Gaura Purnima", image: "/festival-gaura-purnima.jpg", position: "center 30%", date: "Mar 3, 2026" },
+    { name: "Rama Navami", image: "/festival-rama-navami.jpg", position: "center 22%", date: "Mar 27, 2026" },
+    { name: "Narasimha Chaturdashi", image: "/festival-narasimha.jpg", position: "center 18%", date: "Apr 30, 2026" },
+    { name: "Balarama Purnima", image: "/festival-balarama.jpg", position: "center", date: "Aug 28, 2026" },
+    { name: "Sri Krishna Janmashtami", image: "/festival-janmashtami.jpg", position: "center 25%", date: "Sep 4, 2026" },
+    { name: "Srila Prabhupada Vyasa Puja", image: "/festival-prabhupada.jpg", position: "center 12%", date: "Sep 5, 2026" },
+    { name: "Radhastami", image: "/festival-radhastami.jpg", position: "center 22%", date: "Sep 19, 2026" },
+    { name: "Kartik Masam", image: "/festival-kartik.jpg", position: "center 28%", date: "Oct 26 – Nov 24, 2026" },
+    { name: "Govardhan Puja", image: "/festival-govardhan.jpg", position: "center 48%", date: "Nov 10, 2026" },
+    { name: "Vaikuntha Ekadashi", image: "/festival-vaikuntha.jpg", position: "center 55%", date: "Dec 20, 2026" },
+    { name: "Kannan Pongal", image: "/festival-kannan-pongal.jpg", position: "center 28%", date: "Jan 16, 2026" },
 ];
 
 // Normalise a festival name so small differences (Sri/Srila prefixes, punctuation,
@@ -95,6 +97,11 @@ const FestivalCalendar = () => {
                                         {festival.name}
                                     </h3>
                                     <p className="caption mt-1 normal-case tracking-normal">Annual Celebration</p>
+                                </div>
+                                <div className="text-right shrink-0 w-24">
+                                    <p className="font-display font-medium text-sm text-saffron leading-tight">
+                                        {festival.date}
+                                    </p>
                                 </div>
                                 <ChevronRight
                                     size={20}

@@ -6,11 +6,27 @@
   Festivals with no section here show "Details coming soon" in the popup.
 -->
 
+## Nityananda Trayodashi
+
+Sri Nityananda Trayodashi is the auspicious appearance day of Sri Nityananda Prabhu. On this day, devotees observe fasting till noon and seek the blessings of Sri Nityananda Prabhu.
+
+The celebrations begin with a panchamrita abhisheka to Their Lordships, Sri Sri Nitai Gauranga. After the abhisheka, a special arati is performed, accompanied by a devotional song, followed by Mahaprasadam distribution to all.
+
+The Supreme Lord Sri Krishna appeared in Navadvipa (West Bengal) as Sri Chaitanya Mahaprabhu to establish the Sankirtana Movement (congregational chanting of the holy name of the Lord, the Yuga-dharma for this age). To help the Supreme Lord in His mission, Lord Balarama appeared as Nityananda Prabhu. He assisted Sri Chaitanya Mahaprabhu by spreading the holy name of the Lord throughout Bengal.
+
+Sri Nityananda Prabhu appeared in the village of Ekachakra in the district of Birbhum (West Bengal). He was born as the son of Padmavati and Hadai Pandita in 1474 AD on the thirteenth day of the bright fortnight in the month of Magha (Magha Shukla Trayodashi). The place of birth of Lord Nityananda is called Garbhavasa. Many devotees visit this place and take darshan of the Deities.
+
+Sri Nityananda Prabhu, Balarama, represents the guru-tattva. The Supreme Lord cannot be understood by the strength of one's erudition or power of mental speculation: nāyam ātmā pravacanena labhyo na medhayā na bahunā śrutena (Kaṭha Upaniṣad 1.2.23). He can be known only by one who has the mercy of the Lord. To understand Lord Krishna, we need the help of a guru, and without the mercy of Nityananda Prabhu, we cannot realize our true self and the supreme self, Lord Krishna.
+
+"Nityananda" implies everlasting joy. We strive to discover contentment in the material realm through any means necessary, but these pleasures are fleeting. While our search for solace persists, we can seek refuge in Sri Nityananda Prabhu and become enlightened with spiritual knowledge that grants us true happiness and liberation from all anxieties.
+
+Sri Nityananda Prabhu is an embodiment of compassion and is revered by devotees as the Lord of Mercy. Through His mercy, we will receive the necessary spiritual strength. On this auspicious day, let us pray to Sri Nityananda Prabhu for His blessings to make progress in our spiritual life.
+
 ## Gaura Purnima
 
-Gaura Purnima celebrates the divine appearance of Sri Chaitanya Mahaprabhu, who descended on the full-moon evening of Phalguna (February–March) in Sridhama Mayapur, West Bengal, while the entire town resounded with the chanting of the holy names during a lunar eclipse. Golden in complexion and known therefore as Gauranga, He is Lord Krishna Himself, appearing in this age of Kali in the mood and golden lustre of His foremost devotee, Srimati Radharani, to taste and to freely distribute love of God.
+Sri Gaura Purnima is the auspicious appearance day of Sri Chaitanya Mahaprabhu, also known as Gauranga due to His golden complexion. As stated in the scriptures, the Supreme Lord Sri Krishna appeared as Sri Chaitanya Mahaprabhu and taught the importance of devotion to Lord Krishna through congregational chanting of the holy names of God, known as the Hare Krishna Maha Mantra. He appeared on Phalguni Purnima, the full moon day in Phalguna (February–March) in 1486 AD (1407 Shakabda) at Sridham Mayapur as the son of Sri Jagannath Mishra and Srimati Sachidevi. His parents named Him Nimai, since He was born under a Nimba (neem) tree in the courtyard of His paternal house. This festival also marks the beginning of the New Year for Gaudiya Vaishnavas and the annual maha kumbhabhisheka and prathisthapana utsava.
 
-Sri Chaitanya Mahaprabhu inaugurated the sankirtana movement — the congregational chanting of the Hare Krishna maha-mantra — as the recommended process of self-realization for our age, teaching that the holy name is non-different from the Lord Himself. Devotees observe a fast until moonrise and pass the day hearing His pastimes and teachings, chanting, and dancing in ecstatic kirtan. At our temple, the Deities of Sri Sri Gaura Nitai are dressed in beautiful new outfits and honoured with a splendid abhisheka, a grand arati is offered amid joyful sankirtana, and a sumptuous prasadam feast is shared by all.
+The celebrations begin with Seer Varisai Vaibhavam (a grand procession of various offerings for Sri Sri Gaura Nitai) amidst grand kirtans. After the procession, a fire sacrifice (yajna) is conducted and holy waters are invoked in the sacred kalashas. A short abhishekam is performed for Sri Patitapavana Sudarshana Chakra, situated on the top of the temple's vimana. The moolavar Deities of Sri Sri Nitai Gauranga receive a grand abhisheka only once in a year. Their Lordships are first bathed with panchamrita and then with panchagavya, followed by various fruit juices. Devotees chant prayers from the Brahma-Samhita, glorifying the Lord. The Deities are bathed with sanctified water from the invoked kalashas while the devotees chant the Purusha Sukta prayers. Their Lordships then receive pushpa vrishti (a showering of fragrant flowers) and a special offering of 56 dishes (chappan bhog). After this grand feast, Krishna prasadam is distributed to all the devotees and public. At the end of the program, maha arati is performed amidst grand harinama sankirtana, and the Lord is adorned in Raja alankaaram (grand outfit).
 
 ## Rama Navami
 
@@ -20,9 +36,17 @@ Devotees observe a fast until noon and spend the day hearing and chanting the gl
 
 ## Narasimha Chaturdashi
 
-Narasimha Chaturdashi is the appearance day of Lord Narasimhadeva, the half-man, half-lion incarnation of Lord Krishna, who appeared at dusk on the fourteenth day of the bright fortnight of Vaishakha (May). The Lord descended in this fierce and wonderful form to protect His tender devotee, the boy-saint Prahlada Maharaja, and to annihilate the demon Hiranyakashipu, who had tormented his own son for his unflinching devotion. Lord Narasimhadeva is the supreme protector who removes all fear and obstacles from the path of His devotees.
+Sri Narasimha Jayanti is the auspicious appearance day of Lord Narasimha, the half-man, half-lion incarnation of Lord Vishnu. Lord Narasimha appeared at dusk on the Shukla Chaturdashi (the fourteenth day of the bright fortnight) in the month of Vaishakha.
 
-Devotees observe a fast until dusk and pray to Lord Narasimhadeva for protection, fearlessness, and steadiness in devotional service. At the temple, a special abhisheka and arati are offered to the Lord, the moving pastime of Prahlada Maharaja is recounted, and devotees take shelter of His mercy before honouring a festive prasadam feast.
+The Supreme Lord appeared as Narasimha to protect His dear devotee Prahlada from the persecutions of his demoniac father, Hiranyakashipu. By performing severe penances, Hiranyakashipu had received a benediction from Lord Brahma that he could not be killed by any living entity created by Brahma (whether demigod, demon, human being, or animal), within or outside a residence, during the day or at night, on the land or in the sky, by any weapon, and from any entity – dead or alive.
+
+Endowed with this special benediction, Hiranyakashipu became extremely powerful. He conquered all directions and established his supremacy over everyone else. He was inimical towards Lord Vishnu and His devotees. On the contrary, his son Prahlada was a great devotee of Lord Vishnu from the beginning of his life. Hence, Hiranyakashipu made several attempts to kill his son in different ways, but every time, the Lord rescued him.
+
+Finally, the Lord assumed a unique half-man, half-lion form (this form is neither a human being nor an animal) by emerging from a pillar. He killed Hiranyakashipu in the evening (neither day nor night), in the doorway of the assembly hall (neither within nor outside any residence), keeping the demon on His lap (neither land nor sky) and tearing the demon's body to pieces with His nails (neither by a weapon nor by any entity – dead or alive). Thus, the Lord effortlessly killed Hiranyakashipu while satisfying all the conditions of Brahma's boon.
+
+Through this wonderful pastime, the Supreme Lord showed that no one can surpass His intelligence and cheat Him. If the Lord wants to kill someone, nobody can save him, however intelligent and powerful he may be. Similarly, if the Lord wants to save someone, nobody can kill him.
+
+Devotees observe fasting till dusk and offer prayers to Lord Narasimha to seek His mercy and protection from all kinds of dangers and disturbances in their spiritual path. An elaborate abhisheka is performed in the evening to the Deity of Sri Sri Lakshmi Narasimha. The abhisheka is performed with different items like panchamrita, panchagavya, fruit juices, and holy water from kalashas, accompanied by various prayers, Vedic chants, and kirtans. The Lord is then dressed and beautifully decorated with precious jewels and flower garlands and offered a special arati with grand kirtans. Later, a grand prasadam feast is distributed to the public.
 
 ## Balarama Purnima
 
@@ -34,44 +58,110 @@ In our temple, the Deities are adorned with new dresses and jewelry, and the cel
 
 Sri Krishna Janmashtami, the divine appearance day of Lord Krishna, is celebrated with great fervour and enthusiasm at Hare Krishna Temple Avadi. The preparations begin many months before the festival. The temple is adorned with colourful flowers and festoons, radiating a festive aura of vibrancy and celebration.
 
+The following services are performed for the Lord on that day:
+
+• Sri Sri Gaura Nitai wear a brand new dress with heavy stone work and new jewelleries on this most auspicious day.
+
+• Throughout the day, archana is performed; families visiting the temple may take sankalpa and perform archana in their name.
+
+• Sri Sri Radha Venugopal are seated on a grandly decorated swing, and devotees get a chance to swing the Lord on His appearance day.
+
+• In the evening, the main festivities begin with "Paal Kudam Utsavam" (the milk pot procession), in which the milk with which the Supreme Lord will be bathed is brought as a procession from the Sri Chellathamman temple to Hare Krishna Temple Avadi.
+
+• The festival then continues with Bharatanatyam and cultural performances, and the most important part, "Uriyadi Utsavam," famously known as "Dahi Handi," remembering the butter-pot-breaking pastime of little Krishna.
+
+• The most awaited part of the festival, the Mahabhishekam of the Supreme Lord Sri Krishna, begins with bathing Him with milk, curd, honey, tender coconut water, fruit juices, sandalwood paste, turmeric, and auspicious kalasha waters, and finally with a fragrant flower shower.
+
+• At the end of the program, a 4–5 course meal of Krishna prasadam is served to all the devotees and public.
+
+• At midnight (12:00 am), a grand maha arati is performed to the Lord, offering Krishna His favourite sweets, savouries, and delicacies.
+
+• The next day, the utsava Deities of Sri Sri Gaura Nitai are adorned in Krishna Balarama alankaram and taken on a procession on the Garuda vahana, who is the eternal servitor and vehicle of Bhagavan Vishnu.
+
+We invite you all to join the festival and receive the blessings of Sri Krishna.
+
 ## Srila Prabhupada Vyasa Puja
 
-Vyasa Puja is the most cherished celebration of the appearance day of His Divine Grace A.C. Bhaktivedanta Swami Srila Prabhupada, the Founder-Acharya of the International Society for Krishna Consciousness. Appearing in 1896 in Calcutta, he accepted the order of his spiritual master to carry the teachings of Lord Chaitanya to the Western world, and at the age of sixty-nine he crossed the ocean to do so. Within a few short years he established a worldwide movement, opened more than a hundred temples, and translated and commented upon the timeless wisdom of the Bhagavad-gita and Srimad-Bhagavatam, giving the chanting of the holy names to every town and village.
+The appearance day of Srila Prabhupada, the founder-acharya of ISKCON, is celebrated as Vyasa Puja. Srila Prabhupada was born in 1896 on the day of Nandotsava (the day after Janmashtami).
 
-On Vyasa Puja, devotees honour the spiritual master as the transparent representative of the Lord and of Srila Vyasadeva, the original compiler of the Vedic scriptures. The celebration includes a guru-puja and abhisheka, the offering of heartfelt written homages and flowers at his lotus feet, kirtan, and the remembrance of his life and instructions, followed by a sumptuous prasadam feast offered in deep gratitude for his boundless mercy.
+The Vedas originate from the Supreme Lord Sri Krishna. Lord Sri Krishna imparted the Vedic knowledge to Lord Brahma, the creator of this universe. Brahma instructed his son Narada, who in turn gave this knowledge to Vyasadeva. Vyasadeva compiled the Vedic knowledge and also composed the eighteen Puranas. Under the instructions of his spiritual master Narada, he also authored Srimad Bhagavatam, which is called the spotless Purana. He distributed this knowledge throughout the world through his disciples.
+
+A bona fide spiritual master coming in this line of succession descending from Vyasadeva is considered a representative of Vyasadeva. Srila Prabhupada is the 32nd acharya in this disciplic succession, and his disciples observe his appearance day as Vyasa Puja. For the devotees of Hare Krishna Temple Avadi, this is the most important festival of the year. Devotees fast till noon. Various items are cooked for offering to the spiritual master, who in turn offers them to Krishna. Devotees glorify Srila Prabhupada. A grand abhisheka is performed to the Deity of Srila Prabhupada, and prasadam is distributed.
 
 ## Radhastami
 
-Radhastami celebrates the divine appearance of Srimati Radharani, the eternal consort of Lord Krishna and the very personification of pure, selfless devotion. She appeared on the eighth day of the bright fortnight of Bhadrapada (August–September), a fortnight after Krishna Janmashtami, as the daughter of King Vrishabhanu and Queen Kirti in Barsana. As Krishna's internal pleasure potency (hladini-shakti), She embodies the highest love for the Lord, and the Gaudiya Vaishnavas hold that it is by Her mercy alone that one can easily approach Krishna and attain love of God.
+Sri Radhashtami is the auspicious appearance day of Srimati Radharani. The Vedic literatures state that Srimati Radharani is the universal Mother of all living entities. She is also the pleasure potency of Lord Krishna. The pleasure potency of Krishna, known as "Hladini shakti" in Sanskrit, refers to the internal energy of Krishna, Srimati Radharani, who increases the transcendental pleasure of Lord Krishna.
 
-Devotees observe a fast until noon and glorify the unlimited transcendental qualities of Srimati Radharani and Her unalloyed devotion. At the temple, the Deities are offered a beautiful abhisheka and resplendent new outfits, the day is filled with kirtan and discourses on Her glories, and a festive prasadam feast is lovingly distributed to all the assembled devotees.
+Sri Radhashtami is celebrated on the eighth day of the bright fortnight in the month of Bhadra (August–September). Devotees observe fasting till noon and pray to Her to get the mercy of Krishna to progress in devotional service.
+
+On this auspicious occasion, the Deities of Sri Radha Krishna and Sri Gaura Nitai are adorned with a new dress. The garbha-griha is adorned with a magnificent array of vibrant and vivid flowers.
+
+In the evening, the Deities of Sri Radha Krishna receive a splendid abhisheka. Devotees perform kirtanas and glorify Srimati Radharani by singing wonderful songs composed by Vaishnava Acharyas. Devotees visit the temple to witness the celebrations. The Deities are bathed with milk, curd, ghee, honey, and jaggery water, followed by juices from a variety of fruits like muskmelon, apple, watermelon, pineapple, pomegranate, orange, sweet lime, papaya, and grapes. The Deities are bathed with sanctified water from kalashas. This is followed by the showering of different varieties of flowers. After the abhisheka, maha bhog (varieties of delicacies prepared by devotees) is offered to Sri Radha Krishna.
+
+The celebrations conclude with a grand maha prasadam feast for the devotees.
+
+Sri Radhashtami is a special opportunity to glorify Srimati Radharani, under whose care one can attain perfection in devotional service. Don't miss this opportunity to sponsor sevas to Sri Radha Krishna and receive Their unlimited mercy.
 
 ## Kartik Masam
 
-Kartik, also known as the month of Damodara, is the holiest month of the Vaishnava year, observed during October–November. It commemorates the sweet childhood pastime in which mother Yashoda, having caught little Krishna stealing butter, sought to bind Him to a grinding mortar with rope — yet however much rope she gathered, it always fell short by two fingers, until the Lord finally allowed Himself to be bound out of love for His devotee. From this pastime He is known as Damodara, "the one bound at the waist," revealing how the Supreme Lord is conquered only by pure love.
+Deepotsava, also known as the Festival of Lights, is celebrated annually during the auspicious month of Kartika (October–November). This month-long festival commemorates the Damodara-lila, one of the most endearing childhood pastimes of Lord Krishna, highlighting His divine playfulness and loving relationship with His devotees.
 
-Throughout this sacred month, devotees offer ghee lamps to Lord Damodara each evening, sing the beautiful Damodarastakam prayers, and take up additional vows of devotion such as extra rounds of chanting, charity, and service. Kartik is considered especially potent for spiritual advancement, and the temple glows each night with the soft light of countless lamps offered with love to the Lord.
+Damodara Lila of Sri Krishna
+
+The name "Damodara" originates from two Sanskrit words: "dama," meaning rope, and "udara," meaning belly. On one occasion, after Krishna mischievously stole butter, His affectionate mother Yashoda tied Him with a rope around His belly. Hence, He became known as Damodara. This episode captures how the Supreme Lord, though unconquerable by anyone, allows Himself to be bound by the pure love of His devotees, and relishes being controlled by them.
+
+The Supreme Lord Bound by His Mother's Love
+
+Once, Lord Krishna broke a pot of butter and began eating the butter in a secluded place. Mother Yashoda searched for her son and eventually found Him seated on an overturned wooden grinding mortar, feeding butter to the monkeys. Upon seeing His mother approach, Krishna fled in fear. Yashoda chased Him through the house, and though exhausted, she was finally able to capture Him.
+
+Yashoda wanted to teach her mischievous child a lesson. She attempted to bind Him with a rope around His belly to a wooden grinding mortar as a gentle chastisement. Strangely, the rope was always two inches short, no matter how many ropes she tied together. Appreciating the hard labour of His mother and being compassionate towards her, Krishna allowed Himself to be bound by His mother's love for Him.
+
+Deliverance of Nalakuvara
+
+After Mother Yashoda returned to her household duties, Krishna, still bound to the mortar, proceeded towards two tall arjuna trees standing in the courtyard. He passed between the trees, but the large mortar became stuck sideways. Then Krishna pulled the mortar forcefully, causing the trees to crash to the ground.
+
+From these fallen trees emerged two demigods, Nalakuvara and Manigriva, the sons of Kuvera, the treasurer of the demigods. They had been cursed to become trees by the great sage Narada for their sinful activities. Through this curse, they also received the highest benediction of seeing Lord Krishna and becoming His great devotees. Lord Krishna delivered Nalakuvara and Manigriva from their curse and granted them liberation at the end of their lives.
+
+Glories of the Kartik Month
+
+It is not possible to describe the glories of the Kartika month. It is said that just as Lord Damodara is very dear to His devotees, the month known as Damodara or Kartika is also very dear to them. In this month, devotees worship Lord Damodara by offering a ghee lamp daily, and celebrate many important festivals.
+
+The Skanda Purana states that when someone pleases Lord Keshava by offering Him a lamp during the month of Kartika, then, by the mercy of the Lord, the ancestors in the family will all attain liberation. In the Padma Purana, it is said that anyone who offers a ghee lamp to Lord Damodara in the month of Kartika will be freed from all kinds of sins and will go to the abode of Lord Hari.
+
+Celebrations at Hare Krishna Temple Avadi
+
+Every evening during Deepotsava, the temple is illuminated with hundreds of decorative lamps, emanating a transcendental radiance that elevates the spirit of devotion. The splendour of these festivities captures the hearts and souls of all the participants.
+
+The celebrations commence at 8 PM in the temple with an introduction to the Deepotsava festival. Devotees are informed about the significance of this celebration. Devotees offer ghee lamps to Their Lordships, accompanied by the melodious rendition of the Damodarashtaka, a prayer glorifying the divine form of Lord Damodara and beseeching Him for the gift of loving devotional service.
 
 ## Govardhan Puja
 
-Govardhan Puja, also called Annakut ("mountain of food"), commemorates the wonderful pastime in which seven-year-old Krishna lifted Govardhan Hill on the little finger of His left hand, holding it aloft like an umbrella for seven days to shelter the residents of Vrindavan from the torrential rains sent by Indra. By this pastime the Lord stopped the worship of Indra and taught that He alone is the source of all protection, and that loving devotion to Him surpasses ritual worship of the demigods. It is observed on the first day of the bright fortnight of Kartika, the day after Diwali.
+Govardhana Puja is celebrated in the month of Kartika (October–November) to commemorate the pastime of Lord Sri Krishna lifting the Govardhana Hill to protect the residents of Vrindavana from the wrath of Indra.
 
-In gratitude, devotees prepare a great variety of vegetarian preparations and arrange them before the Deities as a "mountain of food," often building a small replica of Govardhan Hill that is worshipped and circumambulated. The day is celebrated with the Annakut darshan, joyful kirtan, discourses on surrender to Krishna, and the distribution of abundant sanctified prasadam to all.
+When the Supreme Lord Sri Krishna saw the residents of Vrindavana preparing for Indra-yajna, He suggested that they should forgo the worship of Indra and instead worship the Govardhana Hill. On coming to know of this, Indra became angry and sent a devastating rainfall over Vrindavana. Krishna picked up the Govardhana Hill with His little finger, and it gave shelter to all the inhabitants of Vrindavana. Indra became conscious of his offense and begged for forgiveness from Krishna. Thus the Supreme Lord established that a devotee who is surrendered to the Supreme Lord and engaged in devotional service is free from all obligations and need not worship any demigods for material favor. This pastime is known as Govardhana Lila and is described in the tenth canto of Srimad Bhagavatam.
+
+As per the instructions of Krishna and following in the footsteps of the residents of Vrindavana, this festival is celebrated every year in the month of Kartika. Devotees prepare varieties of foodstuffs with grain and ghee (like rice, dhal, halva, pakora, and puri) and all kinds of milk preparations (such as sweet rice, rabri, sweet balls, sandesh, rasagulla, and laddu). The food is stacked like a small hill and offered to the Lord. Then it is distributed to everyone as prasadam. Hence, this festival is also called the Annakuta Festival.
+
+Devotees also worship the cows on the day of Govardhana Puja. Krishna is known as Gopala – the protector of cows. There is also a prayer in the Vishnu Purana (1.19.65) that states: namo brahmanya-devaya go-brahmana-hitaya ca. Here Krishna is described as the well-wisher of the cows and the brahmanas. The cows are decorated and fed well. Keeping the cows in front, devotees circumambulate the Govardhana Hill.
+
+At Hare Krishna Temple Avadi, the devotees lovingly prepare varieties of rice, sweets, fruits, savouries, and dry fruits in huge quantities and offer them to the Lord, decorating them as the annakuta Govardhana Hill, later distributed as Mahaprasadam to all the assembled devotees.
 
 ## Vaikuntha Ekadashi
 
-Vaikuntha Ekadashi, also known as Mokshada Ekadashi, is regarded as the most auspicious of all the Ekadashis, falling in the sacred month of Margazhi (December–January). On this day, it is said, the gates of Vaikuntha — the eternal spiritual abode of Lord Vishnu — are thrown open for sincere devotees, and those who fast and worship the Lord with devotion are freed from sin and drawn toward liberation. The same day is honoured as Gita Jayanti, marking the occasion on which Lord Krishna spoke the immortal Bhagavad-gita to His friend and devotee Arjuna on the battlefield of Kurukshetra.
+Vaikuntha Ekadashi is an important festival celebrated every year. Ekadashi is the eleventh day of the waxing and waning phases of the moon and occurs twice every month. The Ekadashi that falls during the waxing phase of the month of Dhanurmasa is of special significance and is glorified as Vaikuntha Ekadashi.
 
-Devotees observe a strict fast and keep awake through the night, spending the day and night chanting the holy names, hearing and reciting the Bhagavad-gita, and worshipping the Lord. At the temple, the day is marked by special darshan, continuous kirtan, recitation of the Gita, and the sweetness of devotional association, reminding all of the supreme goal of returning home, back to Godhead.
+On this auspicious day, the gates of Vaikuntha, the spiritual abode of Lord Vishnu, open for His ardent devotees. This is a major festival in South India, celebrated in all the temples of Lord Vishnu.
+
+Lord Vishnu's majestic abode, Vaikuntha, is situated far beyond the material creation. There are billions and trillions of universes within the material realm, and our universe is only an insignificant part of it. Each universe contains billions of planets. All the universes together constitute only one-fourth of the Lord's total creation. The remaining three-fourths, known as the Tripād-vibhūti, which lie beyond the boundaries of the material universes, form the spiritual world where the Vaikuntha planets are situated. These planets are spiritual and exist eternally.
+
+The word Vaikuntha means "a place completely free from anxieties." The material world is characterised by anxiety and by the inevitable miseries of birth, death, old age, and disease. In contrast, there are no such sufferings for the liberated souls residing in Vaikuntha. They eternally engage in loving devotional service to the Lord in the highest spiritual bliss. One who attains Vaikuntha never takes birth again in this material world.
+
+Worship of Lord Vishnu offers the soul a direct connection with Him through devotion, remembrance, and surrender. On Vaikuntha Ekadashi, devotees of Lord Vishnu observe the Ekadashi Vrata and remember the Supreme Lord by chanting His holy names and singing His glories. Sri Nammalwar, a great devotee in the Sri Sampradaya (the disciplic succession descending from Lakshmi Devi), returned to the spiritual world on this day. To commemorate this event, the Vaikuntha Dwara—a special entrance symbolising the gateway to Vaikuntha—is set up annually in all Vishnu temples. It is believed that anyone who enters the Vaikuntha Dwara on this day will attain Vaikuntha.
+
+At Hare Krishna Temple Avadi, in the early hours of the morning the Vaikuntha Dwara is opened, and then a grand arati is performed to Sri Sri Gaura Nitai. Later, ekadashi prasadam is served to all the assembled devotees.
 
 ## Kannan Pongal
 
 Kannan Pongal is the temple's celebration of the Tamil harvest festival of Pongal, observed in the auspicious month of Thai (January) as a day of thanksgiving to the Lord. "Kannan" is the beloved Tamil name for Lord Krishna, and on this day devotees express gratitude for the Lord's mercy and for the bounty of the harvest by cooking fresh, sweet Pongal from the newly harvested rice and offering it first to Him with love.
 
-The festival is celebrated with an abhisheka and arati to the Lord, joyful kirtan, and the offering of freshly harvested grains and sweet Pongal to Lord Krishna. Once the offering is complete, the sanctified Pongal prasadam is distributed to all who attend, in the happy spirit of a community giving thanks to Krishna, the true maintainer and provider of all.
-
-## Nityananda Trayodashi
-
-Nityananda Trayodashi celebrates the appearance of Sri Nityananda Prabhu, who is none other than Lord Balarama Himself, the eternal companion and elder brother of Sri Chaitanya Mahaprabhu. He appeared in the village of Ekachakra in Bengal on the thirteenth day of the bright fortnight of Magha (January–February), as the son of Hadai Pandita and Padmavati. To assist the Lord in His mission of spreading the holy name, Nityananda Prabhu travelled throughout Bengal, mercifully delivering even the most fallen and sinful souls, asking from them nothing but to chant the names of Krishna and worship the Lord.
-
-Sri Nityananda Prabhu embodies the principle of the spiritual master (guru-tattva), and the scriptures declare that it is only by His boundless compassion that one can approach Lord Krishna. Devotees observe a fast until noon, and the temple celebrates with a panchamrita abhisheka to Their Lordships Sri Sri Nitai Gauranga, a special arati, grand kirtan, and the joyful distribution of prasadam.
+The festival is celebrated with the offering of a new dress to the Lord and joyful kirtan, and devotees prepare the offering of sweet Pongal to Lord Krishna. Once the offering is complete, the sanctified Pongal prasadam is distributed to all who attend, in the happy spirit of a community giving thanks to Krishna, the true maintainer and provider of all.
