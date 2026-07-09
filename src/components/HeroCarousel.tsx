@@ -15,14 +15,6 @@ interface Slide {
 // to the temple photo alone. Update src/caption/expires for the next festival.
 const FESTIVAL_SLIDES: (Slide & { expires: string })[] = [
   {
-    src: '/janmashtami-2026-invite-en.jpg',
-    alt: 'Sri Krishna Janmashtami 2026 invitation',
-    caption: 'Sri Krishna Janmashtami 2026 — Invitation',
-    width: 1600,
-    height: 854,
-    expires: '2026-09-06',
-  },
-  {
     src: '/janmashtami-2026-invite-ta.jpg',
     alt: 'ஸ்ரீ கிருஷ்ண ஜென்மாஷ்டமி 2026 அழைப்பிதழ்',
     caption: 'ஸ்ரீ கிருஷ்ண ஜென்மாஷ்டமி 2026 — அழைப்பிதழ்',
@@ -31,17 +23,25 @@ const FESTIVAL_SLIDES: (Slide & { expires: string })[] = [
     expires: '2026-09-06',
   },
   {
-    src: '/janmashtami-2026-seva-en.jpg',
-    alt: 'Festival seva and donation breakdown',
-    caption: 'Festival Seva — Donation breakdown',
+    src: '/janmashtami-2026-seva-ta.jpg',
+    alt: 'திருவிழா சேவை மற்றும் நன்கொடை விவரம்',
+    caption: 'திருவிழா சேவை — நன்கொடை விவரம்',
     width: 1600,
     height: 854,
     expires: '2026-09-06',
   },
   {
-    src: '/janmashtami-2026-seva-ta.jpg',
-    alt: 'திருவிழா சேவை மற்றும் நன்கொடை விவரம்',
-    caption: 'திருவிழா சேவை — நன்கொடை விவரம்',
+    src: '/janmashtami-2026-invite-en.jpg',
+    alt: 'Sri Krishna Janmashtami 2026 invitation',
+    caption: 'Sri Krishna Janmashtami 2026 — Invitation',
+    width: 1600,
+    height: 854,
+    expires: '2026-09-06',
+  },
+  {
+    src: '/janmashtami-2026-seva-en.jpg',
+    alt: 'Festival seva and donation breakdown',
+    caption: 'Festival Seva — Donation breakdown',
     width: 1600,
     height: 854,
     expires: '2026-09-06',
