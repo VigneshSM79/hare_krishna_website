@@ -23,7 +23,6 @@ const IMPACT_STATS = [
 ];
 
 // Real Annadana (free prasadam) photos from the temple.
-const CAUSE_IMAGE = '/annadana.jpg';
 const CAUSE_GALLERY = [
   { src: '/annadana-3.jpg', alt: 'A young volunteer serving prasadam to seated devotees' },
   { src: '/annadana-2.jpg', alt: 'Devotees of all ages receiving free prasadam on leaf plates' },
@@ -160,19 +159,37 @@ const Donation = () => {
                   Lord Krishna — going directly towards maintaining His abode and serving His devotees.
                 </p>
               </div>
-              <div className="rounded-md overflow-hidden border border-line">
+              <div className="bg-paper border border-line rounded-md p-6 shadow-sm text-center w-full max-w-sm mx-auto">
+                <div className="inline-flex items-center justify-center w-11 h-11 bg-saffron/10 rounded-md mb-3">
+                  <QrCode className="text-saffron" size={22} />
+                </div>
+                <h2 className="font-display font-medium text-xl text-ink mb-1">Scan to Donate via UPI</h2>
+                <p className="text-sm text-stone mb-4">Use any UPI app to scan the code below</p>
                 <img
-                  src={CAUSE_IMAGE}
-                  alt="Devotees being served free prasadam at the temple"
-                  className="w-full h-64 lg:h-80 object-cover"
+                  src="/temple-qr.jpg"
+                  alt="UPI QR Code for Donation"
+                  className="w-full max-w-[300px] aspect-square mx-auto object-contain"
                 />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Cause + Impact */}
+        {/* Prasadam Gallery */}
         <section className="py-16 bg-paper">
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto grid sm:grid-cols-3 gap-4">
+              {CAUSE_GALLERY.map(({ src, alt }) => (
+                <div key={src} className="rounded-md overflow-hidden border border-line">
+                  <img src={src} alt={alt} className="w-full h-56 object-cover" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Cause + Impact */}
+        <section className="py-16 bg-paper-2">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               <div className="max-w-3xl mb-12">
@@ -191,7 +208,7 @@ const Donation = () => {
                 {IMPACT_STATS.map(({ icon: Icon, value, label }) => (
                   <div
                     key={label}
-                    className="bg-paper-2 rounded-md p-6 border border-line text-center"
+                    className="bg-paper rounded-md p-6 border border-line text-center"
                   >
                     <div className="w-14 h-14 rounded-md bg-saffron/10 flex items-center justify-center mb-4 mx-auto">
                       <Icon className="text-saffron" size={26} />
@@ -201,39 +218,6 @@ const Donation = () => {
                   </div>
                 ))}
               </div>
-
-              {/* Photos from the temple's daily Annadana */}
-              <div className="grid sm:grid-cols-3 gap-4 mt-12">
-                {CAUSE_GALLERY.map(({ src, alt }) => (
-                  <div key={src} className="rounded-md overflow-hidden border border-line">
-                    <img src={src} alt={alt} className="w-full h-48 object-cover" />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* QR Code Section */}
-        <section className="py-16 bg-paper-2">
-          <div className="container mx-auto px-4">
-            <div className="max-w-md mx-auto text-center">
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-saffron/10 rounded-md mb-4">
-                <QrCode className="text-saffron" size={24} />
-              </div>
-              <h2 className="font-display font-medium text-2xl text-ink mb-2">Scan to Donate via UPI</h2>
-              <p className="text-stone mb-6">Use any UPI app to scan the QR code below</p>
-              <div className="bg-paper border border-line rounded-md p-6 inline-block">
-                {/* TODO: add the real UPI QR at public/upi-qr.png */}
-                <img
-                  src="/upi-qr.png"
-                  alt="UPI QR Code for Donation"
-                  className="w-64 h-64 mx-auto object-contain"
-                />
-              </div>
-              <p className="text-sm text-stone mt-4">
-                After payment, please fill in the form below so we can acknowledge your donation.
-              </p>
             </div>
           </div>
         </section>
