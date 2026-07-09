@@ -1,4 +1,5 @@
 import React from 'react';
+import HeroCarousel from './HeroCarousel';
 
 const Hero = () => {
   return (
@@ -8,7 +9,7 @@ const Hero = () => {
 
           {/* Main Heading */}
           <div className="text-center mb-8">
-            <h1 className="font-display font-medium text-ink text-4xl md:text-5xl lg:text-6xl leading-tight">
+            <h1 className="font-display font-bold text-ink text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight whitespace-nowrap">
               Welcome to{' '}
               <span className="text-saffron">Hare Krishna Temple Avadi</span>
             </h1>
@@ -16,15 +17,7 @@ const Hero = () => {
 
           {/* Main Image Section */}
           <div className="mb-12">
-            <div className="relative max-w-5xl mx-auto">
-              <div className="rounded-md overflow-hidden border border-line">
-                <img
-                  src="/temple-entrance.jpg"
-                  alt="Hare Krishna Temple Avadi"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
+            <HeroCarousel />
           </div>
 
           {/* Content Below Images */}
