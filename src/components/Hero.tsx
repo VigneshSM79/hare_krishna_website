@@ -4,7 +4,7 @@ import HeroCarousel from './HeroCarousel';
 const Hero = () => {
   return (
     <section id="home" className="relative bg-paper">
-      <div className="container mx-auto px-4 pt-28 pb-20">
+      <div className="container mx-auto px-4 pt-[calc(var(--header-h)+44px)] pb-20">
         <div className="max-w-6xl mx-auto">
 
           {/* Main Heading */}

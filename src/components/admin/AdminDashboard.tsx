@@ -23,8 +23,6 @@ const TABS = [
   },
 ];
 
-const SCRIPT_URL = import.meta.env.VITE_SEVA_SCRIPT_URL as string;
-
 const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
   const [activeTab, setActiveTab] = useState<Tab>('weekly');
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -111,7 +109,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ onLogout }) => {
         {/* Page content */}
         <main className="flex-1 p-6 lg:p-10">
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 lg:p-8">
-            <DonationForm key={activeTab} type={activeTab} scriptUrl={SCRIPT_URL} />
+            <DonationForm key={activeTab} type={activeTab} />
           </div>
         </main>
       </div>

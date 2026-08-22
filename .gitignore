@@ -29,3 +29,14 @@ supabase/.temp
 
 .vercel
 .env*.local
+
+# Backups of env files - these hold real secrets
+.env.backup
+.env*.backup
+
+# Google service-account keys, wherever they land
+*service-account*.json
+temple-bot-key.json
+
+# Windows junk
+nul

@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { CheckCircle, Loader2, IndianRupee } from 'lucide-react';
+import { submitForm } from '../../lib/submitForm';
 
 interface DonationFormProps {
   type: 'weekly' | 'yearly';
-  scriptUrl: string;
 }
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
 
 const PAYMENT_MODES = ['Cash', 'UPI', 'Bank Transfer', 'Cheque'];
 
-const DonationForm: React.FC<DonationFormProps> = ({ type, scriptUrl }) => {
+const DonationForm: React.FC<DonationFormProps> = ({ type }) => {
   const isWeekly = type === 'weekly';
 
   const emptyForm = {
@@ -25,6 +25,7 @@ const DonationForm: React.FC<DonationFormProps> = ({ type, scriptUrl }) => {
 
   const [form, setForm] = useState(emptyForm);
   const [formState, setFormState] = useState<FormState>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -35,21 +36,21 @@ const DonationForm: React.FC<DonationFormProps> = ({ type, scriptUrl }) => {
     setFormState('submitting');
 
     try {
-      const params = new URLSearchParams({
-        sheet: isWeekly ? 'Weekly Donations' : 'Yearly Donations',
+      await submitForm(isWeekly ? 'weekly' : 'yearly', {
         donorName: form.donorName,
         phone: form.phone,
         amount: form.amount,
         paymentMode: form.paymentMode,
         period: isWeekly ? form.date : form.year,
         notes: form.notes,
-        timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
       });
 
-      await fetch(`${scriptUrl}?${params.toString()}`);
       setFormState('success');
       setForm(emptyForm);
-    } catch {
+    } catch (error) {
+      // "Entry Saved!" used to appear even when nothing was saved. The priest
+      // has no way of telling, so the failure has to be visible here.
+      setErrorMessage(error instanceof Error ? error.message : '');
       setFormState('error');
     }
   };
@@ -184,7 +185,7 @@ const DonationForm: React.FC<DonationFormProps> = ({ type, scriptUrl }) => {
 
       {formState === 'error' && (
         <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm">
-          Something went wrong. Please try again.
+          {errorMessage || 'Something went wrong. Please try again.'}
         </div>
       )}
 

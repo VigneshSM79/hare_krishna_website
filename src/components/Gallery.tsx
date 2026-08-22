@@ -60,7 +60,7 @@ const Gallery = () => {
         },
         {
           id: 'gaura-purnima-2022',
-          title: '2022 Gaura Purnima & Moolavar & Patita Pavana Chakra Installation',
+          title: '2022 Gaura Purnima Celebration (Gaura Nitai & Patita Pavana Chakra Installation)',
           coverPhoto: '/gaura_purnima_2022.jpg',
           folderPath: '/Gallery/2022 Gaura Purnima & Moolavar & Patita Pavana Chakra Installation'
         }
