@@ -53,8 +53,10 @@ const SponsorPopup = () => {
   const location = useLocation();
   const dialogRef = useRef<HTMLDivElement>(null);
 
-  // Never interrupt someone who is already on the registration page.
-  const onSponsorPage = location.pathname === SPONSOR_ROUTE;
+  // Never interrupt someone who is already on the registration page, or a
+  // devotee marking their rounds on the private Virage Vidya page.
+  const onSponsorPage =
+    location.pathname === SPONSOR_ROUTE || location.pathname === '/virage-vidya';
 
   // `?popup=1` forces it open no matter what was stored before. Handy for
   // testing, and for showing the popup to someone who has already dismissed it.

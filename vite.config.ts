@@ -48,13 +48,13 @@ function apiRoutes(env: Record<string, string>): Plugin {
 
           const module = await server.ssrLoadModule(`/api/${route}.ts`);
           const handler = module.default as (
-            request: { method?: string; body: unknown },
+            request: { method?: string; body: unknown; headers: IncomingMessage['headers'] },
             response: { status: (c: number) => unknown; json: (b: unknown) => void }
           ) => Promise<void>;
 
           // Mirrors what Vercel hands the function: a parsed JSON body.
           await handler(
-            { method: req.method, body: raw ? JSON.parse(raw) : {} },
+            { method: req.method, body: raw ? JSON.parse(raw) : {}, headers: req.headers },
             {
               status(code: number) {
                 res.statusCode = code;

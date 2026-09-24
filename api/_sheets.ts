@@ -212,8 +212,30 @@ export async function ensureTab(title: string, headers: string[]): Promise<void>
   knownTabs.add(title);
 }
 
+/**
+ * A cell as we write it. Strings stay text under RAW; numbers arrive as real
+ * numbers, so the sheet can SUM a column of chanting rounds.
+ */
+export type Cell = string | number;
+
+/** Every row of a tab, header included, as the formatted text the sheet shows. */
+export async function readRows(title: string): Promise<string[][]> {
+  const body = (await callSheets(`/values/${encodeURIComponent(title)}`)) as {
+    values?: string[][];
+  };
+  return body.values ?? [];
+}
+
+/** Overwrites one row in place. `rowNumber` is the sheet's own 1-based number. */
+export async function updateRow(title: string, rowNumber: number, values: Cell[]): Promise<void> {
+  await callSheets(
+    `/values/${encodeURIComponent(`${title}!A${rowNumber}`)}?valueInputOption=RAW`,
+    { method: 'PUT', body: JSON.stringify({ values: [values] }) }
+  );
+}
+
 /** Appends one row underneath whatever is already in the tab. */
-export async function appendRow(title: string, values: string[]): Promise<void> {
+export async function appendRow(title: string, values: Cell[]): Promise<void> {
   // RAW, not USER_ENTERED: a name beginning with "=" must stay text, and a
   // phone number must not be quietly turned into a number and lose its zeros.
   await callSheets(
