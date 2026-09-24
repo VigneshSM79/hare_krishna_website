@@ -17,7 +17,7 @@ import TermsOfService from './components/TermsOfService';
 import CookieConsent from './components/CookieConsent';
 import SponsorPrasadam from './components/SponsorPrasadam';
 import SponsorPopup from './components/SponsorPopup';
-import VirageVidya from './components/VirageVidya';
+import VairagyaVidya from './components/VairagyaVidya';
 
 function ScrollToHash() {
   const location = useLocation();
@@ -52,7 +52,7 @@ function App() {
         <Route path="/offer-service" element={<OfferService />} />
         <Route path="/donate" element={<Donation />} />
         <Route path="/sponsor-prasadam" element={<SponsorPrasadam />} />
-        <Route path="/virage-vidya" element={<VirageVidya />} />
+        <Route path="/vairagya-vidya" element={<VairagyaVidya />} />
         <Route path="/festivals" element={
           <div className="min-h-screen bg-white">
             <Header />

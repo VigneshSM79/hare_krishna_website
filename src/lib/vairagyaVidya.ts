@@ -1,4 +1,4 @@
-// Browser side of api/virage-vidya.ts.
+// Browser side of api/vairagya-vidya.ts.
 //
 // The login token and the devotee's mobile are remembered on this phone so a
 // devotee can mark rounds each morning without logging in again. Storage can
@@ -51,7 +51,7 @@ export const remembered = {
 async function call<T>(action: string, fields: Record<string, unknown> = {}): Promise<T> {
   let response: Response;
   try {
-    response = await fetch('/api/virage-vidya', {
+    response = await fetch('/api/vairagya-vidya', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -1,6 +1,6 @@
-// Vercel Serverless Function: POST /api/virage-vidya
+// Vercel Serverless Function: POST /api/vairagya-vidya
 //
-// Everything behind the Virage Vidya page — the devotees' daily chanting log.
+// Everything behind the Vairagya Vidya page — the devotees' daily chanting log.
 // One function with an `action` rather than one per action, because Vercel's
 // free plan caps a project at 12 functions and this page will grow (prasadam
 // and reading are next).
@@ -269,7 +269,7 @@ export default async function handler(req: Req, res: Res) {
       return res.status(400).json({ ok: false, error: error.message });
     }
 
-    console.error('[api/virage-vidya] failed', {
+    console.error('[api/vairagya-vidya] failed', {
       action,
       reason: error instanceof Error ? error.message : String(error),
     });
