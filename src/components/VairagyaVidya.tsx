@@ -11,9 +11,9 @@ import {
   markRounds,
   register,
   remembered,
-} from '../lib/virageVidya';
+} from '../lib/vairagyaVidya';
 
-// Virage Vidya — the devotees' private daily chanting log.
+// Vairagya Vidya — the devotees' private daily chanting log.
 //
 // login → mobile → (register, first visit only) → home
 //
@@ -54,7 +54,7 @@ function weekOf(today: string): string[] {
   return Array.from({ length: 7 }, (_, i) => addDays(monday, i));
 }
 
-const VirageVidya = () => {
+const VairagyaVidya = () => {
   const [screen, setScreen] = useState<Screen>('loading');
   const [profile, setProfile] = useState<Profile | null>(null);
   const [busy, setBusy] = useState(false);
@@ -401,7 +401,7 @@ const VirageVidya = () => {
         <section className="pt-[calc(var(--header-h)+48px)] pb-10 bg-paper-2">
           <div className="container mx-auto px-4 max-w-xl text-center">
             <p className="eyebrow mb-3">For devotees</p>
-            <h1 className="font-display font-medium text-4xl text-ink">Virage Vidya</h1>
+            <h1 className="font-display font-medium text-4xl text-ink">Vairagya Vidya</h1>
             <p className="text-stone mt-3">Your daily chanting, kept in one place.</p>
           </div>
         </section>
@@ -414,4 +414,4 @@ const VirageVidya = () => {
   );
 };
 
-export default VirageVidya;
+export default VairagyaVidya;
