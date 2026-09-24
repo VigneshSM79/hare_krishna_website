@@ -66,7 +66,7 @@ const FestivalCalendar = () => {
     const selectedContent = selected ? FESTIVAL_CONTENT[normalize(selected.name)] : undefined;
 
     return (
-        <section id="festival-calendar" className="py-20 bg-paper">
+        <section id="festival-calendar" className="pt-[calc(var(--header-h)+12px)] pb-20 bg-paper">
             <div className="container mx-auto px-4">
                 <div className="max-w-6xl mx-auto">
                     {/* Header */}

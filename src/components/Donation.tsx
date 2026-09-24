@@ -3,6 +3,7 @@ import { Heart, Home, UtensilsCrossed, PartyPopper, Flower2, CheckCircle, Loader
 import Header from './Header';
 import Footer from './Footer';
 import CookieConsent from './CookieConsent';
+import { submitForm } from '../lib/submitForm';
 
 const CATEGORIES = [
   { id: 'Temple Maintenance', label: 'Temple Maintenance', icon: Home, description: 'Support upkeep and renovation of the temple premises' },
@@ -38,8 +39,6 @@ const INDIAN_STATES = [
   'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Jammu and Kashmir', 'Ladakh',
   'Lakshadweep', 'Puducherry',
 ];
-
-const GOOGLE_SCRIPT_URL = import.meta.env.VITE_SEVA_SCRIPT_URL as string;
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -108,8 +107,9 @@ const Donation = () => {
     setFormState('submitting');
 
     try {
-      const params = new URLSearchParams({
-        sheet: 'Donations',
+      // POST, not a query string: PAN numbers and home addresses no longer
+      // travel inside a URL that Google and every proxy in between logs.
+      await submitForm('donation', {
         name: formData.name,
         phone: formData.phone,
         amount: formData.amount,
@@ -125,14 +125,15 @@ const Donation = () => {
         state: formData.want80G ? formData.state : '',
         city: formData.want80G ? formData.city : '',
         pincode: formData.want80G ? formData.pincode : '',
-        timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
       });
 
-      await fetch(`${GOOGLE_SCRIPT_URL}?${params.toString()}`);
       setFormState('success');
       setFormData(initialFormData);
       setAmountChoice(null);
-    } catch {
+    } catch (error) {
+      // Every donate-page entry before 16 Aug was lost this way: the old code
+      // showed a thank-you no matter what came back.
+      setErrorMessage(error instanceof Error ? error.message : '');
       setFormState('error');
     }
   };
@@ -145,7 +146,7 @@ const Donation = () => {
       <Header />
       <main>
         {/* Hero Banner */}
-        <section className="pt-32 pb-16 bg-paper-2">
+        <section className="pt-[calc(var(--header-h)+60px)] pb-16 bg-paper-2">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center max-w-6xl mx-auto">
               <div>
@@ -567,7 +568,8 @@ const Donation = () => {
 
                   {formState === 'error' && (
                     <div className="p-4 bg-red-50 border border-red-200 rounded-md text-red-600 text-sm">
-                      Something went wrong while submitting your donation details. Please try again or contact us directly.
+                      {errorMessage ||
+                        'Something went wrong while submitting your donation details. Please try again or contact us directly.'}
                     </div>
                   )}
 

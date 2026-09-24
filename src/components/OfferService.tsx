@@ -3,6 +3,7 @@ import { Heart, Utensils, Sparkles, Flower2, CheckCircle, Loader2, GlassWater, W
 import Header from './Header';
 import Footer from './Footer';
 import CookieConsent from './CookieConsent';
+import { submitForm } from '../lib/submitForm';
 
 const SERVICES = [
   { id: 'cooking', label: 'Cooking Service', icon: Utensils, description: 'Prepare prasadam offerings for the deities and devotees' },
@@ -12,8 +13,6 @@ const SERVICES = [
   { id: 'washing', label: 'Washing Vessels', icon: GlassWater, description: 'Clean and wash vessels used for prasadam and deity worship' },
   { id: 'sweeping', label: 'Sweeping', icon: Wind, description: 'Sweep and maintain the temple premises clean and sacred' },
 ];
-
-const GOOGLE_SCRIPT_URL = import.meta.env.VITE_SEVA_SCRIPT_URL as string;
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -51,20 +50,21 @@ const OfferService = () => {
     setFormState('submitting');
 
     try {
-      const params = new URLSearchParams({
-        sheet: 'Seva Registrations',
+      // The timestamp is filled in by the server — a wrong clock on the
+      // devotee's phone used to become a wrong row in the sheet.
+      await submitForm('seva', {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
         address: formData.address,
         services: formData.services.join(', '),
-        timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
       });
 
-      await fetch(`${GOOGLE_SCRIPT_URL}?${params.toString()}`);
       setFormState('success');
       setFormData({ name: '', email: '', phone: '', address: '', services: [] });
-    } catch {
+    } catch (error) {
+      // Only say "thank you" when the row really reached the sheet.
+      setErrorMessage(error instanceof Error ? error.message : '');
       setFormState('error');
     }
   };
@@ -74,7 +74,7 @@ const OfferService = () => {
       <Header />
       <main>
         {/* Hero Banner */}
-        <div className="pt-24 pb-16 bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
+        <div className="pt-[calc(var(--header-h)+28px)] pb-16 bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
           <div className="container mx-auto px-4 text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-500 rounded-full mb-6 shadow-lg">
               <Heart className="text-white" size={32} />
@@ -222,7 +222,8 @@ const OfferService = () => {
 
                   {formState === 'error' && (
                     <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm">
-                      Something went wrong while submitting your form. Please try again or contact us directly.
+                      {errorMessage ||
+                        'Something went wrong while submitting your form. Please try again or contact us directly.'}
                     </div>
                   )}
 

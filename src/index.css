@@ -7,6 +7,20 @@
     scroll-behavior: smooth;
   }
 
+  /*
+   * Height of the fixed header. Pages offset their first section from this
+   * variable instead of a hard-coded padding, so turning the prasadam
+   * announcement strip on or off never pushes content under the header.
+   * Header.tsx adds `.has-banner` to <body> while the strip is showing.
+   */
+  :root {
+    --header-h: 68px;
+  }
+
+  body.has-banner {
+    --header-h: 108px; /* 68px nav row + 40px announcement strip */
+  }
+
   body {
     @apply bg-paper text-ink font-sans antialiased;
     font-size: 17px;

@@ -15,6 +15,9 @@ import AdminPage from './components/admin/AdminPage';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfService from './components/TermsOfService';
 import CookieConsent from './components/CookieConsent';
+import SponsorPrasadam from './components/SponsorPrasadam';
+import SponsorPopup from './components/SponsorPopup';
+import VirageVidya from './components/VirageVidya';
 
 function ScrollToHash() {
   const location = useLocation();
@@ -39,12 +42,17 @@ function App() {
   return (
     <Router>
       <ScrollToHash />
+      {/* Mounted once, outside <Routes>, so the invitation follows the visitor
+          across pages. It hides itself on the registration page. */}
+      <SponsorPopup />
       <Routes>
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/offer-service" element={<OfferService />} />
         <Route path="/donate" element={<Donation />} />
+        <Route path="/sponsor-prasadam" element={<SponsorPrasadam />} />
+        <Route path="/virage-vidya" element={<VirageVidya />} />
         <Route path="/festivals" element={
           <div className="min-h-screen bg-white">
             <Header />
